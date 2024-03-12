@@ -4,7 +4,7 @@ export const UseStateHookWrapper = styled.div`
 
     border: 2px solid #000000;
     margin: 0 20% 20px 20%;
-    background: linear-gradient(to right, #36D1DC, #5B86E5);
+    background-color: #d3d3d3;
 
     .buttonContainer{
         display: flex;

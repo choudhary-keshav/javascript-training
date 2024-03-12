@@ -12,6 +12,7 @@ export const ToDoListWrapper = styled.div`
         justify-content: center;
         flex-direction: column;
         align-items: center;
+        margin-top: 0;
     }
 
     .ToDoTitle{

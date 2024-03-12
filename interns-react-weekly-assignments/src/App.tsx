@@ -7,13 +7,18 @@ import Ritika from './components/Home/Ritika';
 import Shreyansh from './components/Home/Shreyansh';
 import Aditya from './components/Home/Aditya';
 import NotFound from './components/NotFound';
+import Week1 from './components/Home/Keshav/Week1';
+import Week3 from './components/Home/Keshav/Week3';
 
 const App = () => {
   return (
     <AppWrapper>
       <Routes>
         <Route path="/" element={<Home />} >
-          <Route path="/keshav" element={<Keshav/>}></Route>
+          <Route path="/keshav" element={<Keshav/>}>
+            <Route path="/keshav/week1&2" element={<Week1/>}></Route>
+            <Route path="/keshav/week3" element={<Week3/>}></Route>
+          </Route>
           <Route path="/aditya" element={<Aditya/>}></Route>
           <Route path="/shreyansh" element={<Shreyansh/>}></Route>
           <Route path="/ritika" element={<Ritika/>}></Route>
