@@ -30,4 +30,10 @@ export const KeshavWrapper = styled.div`
         background-color: #b32b13;
     }
 
+    @media screen and (max-width: 824px) {
+        .weekButtonsContainer{
+            margin: 0 5%;
+        }
+    }
+
 `

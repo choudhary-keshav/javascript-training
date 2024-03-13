@@ -9,7 +9,6 @@ const UseStateHook = () => {
 
   const changeCounter = (event: React.MouseEvent<HTMLButtonElement>) => {
     const buttonValue = parseInt(event.currentTarget.value, 10);
-    console.log(buttonValue);
     setCount((prevCount) => (buttonValue === 0 ? 0 : prevCount + buttonValue));
   };
 
