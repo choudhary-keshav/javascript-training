@@ -10,6 +10,7 @@ import NotFound from './components/NotFound';
 import Week1 from './components/Home/Keshav/Week1';
 import Week3 from './components/Home/Keshav/Week3';
 import Week4 from './components/Home/Keshav/Week4';
+import AdityaWeek3 from "./components/Home/Aditya/Week3";
 
 const App = () => {
   return (
@@ -21,7 +22,9 @@ const App = () => {
             <Route path="/keshav/week3" element={<Week3/>}></Route>
             <Route path="/keshav/week4" element={<Week4/>}></Route>
           </Route>
-          <Route path="/aditya" element={<Aditya/>}></Route>
+          <Route path="/aditya" element={<Aditya/>}>
+            <Route path="/aditya/week3" element={<AdityaWeek3/>}></Route>
+          </Route>
           <Route path="/shreyansh" element={<Shreyansh/>}></Route>
           <Route path="/ritika" element={<Ritika/>}></Route>
         </Route>
