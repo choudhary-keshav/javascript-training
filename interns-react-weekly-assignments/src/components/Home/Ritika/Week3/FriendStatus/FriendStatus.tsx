@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {  } from 'react';
 import FriendInputDetail from './FriendInputDetail';
 import useEmployeeDetails from './useEmployeeDetails';
 import statusOptions from '../../../Keshav/Week3/utils/statusOptions';
@@ -6,20 +6,15 @@ import { FriendStatusWrapper,EmployeeList,EmployeeItem,EmployeeButton } from './
 import {Employee} from "../interfaces/interface"
 
 const FriendStatus = () => {
-  const { employees } = useEmployeeDetails();
-  const [employeesNew, setEmployeesNew] = useState<Employee[]>(employees?employees:[])
-
-  useEffect(()=>{
-    console.log(employeesNew)
-  },[employeesNew])
-  
+  const { employees,updateState } = useEmployeeDetails();
+   
   const handleStatusChange = (employeeIndex: number) => {
     const currentIndex = statusOptions.indexOf(employees[employeeIndex].employeeStatus);
     const nextIndex = (currentIndex + 1) % statusOptions.length;
     const temp:Employee[] = employees;
     temp[employeeIndex].employeeStatus = statusOptions[nextIndex];
     localStorage.setItem('employees', JSON.stringify(temp));
-    setEmployeesNew(temp)
+    updateState(temp)
   };
   
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import useEmployeeDetails from './useEmployeeDetails';
 import statusOptions from '../../../Keshav/Week3/utils/statusOptions';
 import {validateInput,alreadyExistUser} from '../utils/validation'
@@ -15,6 +15,7 @@ const FriendInputDetail = () => {
     setCurrentStatus('');
     setName('');
   };
+  
   const handleEmployeeNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
