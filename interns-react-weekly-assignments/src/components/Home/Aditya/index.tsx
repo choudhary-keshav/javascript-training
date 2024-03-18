@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import { AdityaWrapper } from './styles'
 
-const Keshav = () => {
+const Aditya = () => {
 
   const [selectedWeek, setSelectedWeek] = useState("");
 
@@ -22,4 +22,4 @@ const Keshav = () => {
   )
 }
 
-export default Keshav
+export default Aditya;
