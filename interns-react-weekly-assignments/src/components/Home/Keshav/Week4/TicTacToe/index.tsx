@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { TicTacToeWrapper } from './styles';
 
 const TicTacToe = () => {
-  const [ticTacToeBoard, setTicTacToeBoard] = useState<string[][]>([
+  const initialBoard = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
-  ]);
+  ];
+
+  const [ticTacToeBoard, setTicTacToeBoard] = useState<string[][]>(initialBoard);
+
   const [player, setPlayer] = useState<number>(1);
   const [winner, setWinner] = useState<number | null>(null);
 
@@ -25,22 +28,19 @@ const TicTacToe = () => {
     setTicTacToeBoard(newBoard);
   };
 
-  const checkWinner = (board: (string)[][], symbol: string): boolean => {
+  const checkWinner = (board: string[][], value: string): boolean => {
     for (let i = 0; i < 3; i++) {
-      if (board[i][0] === symbol && board[i][1] === symbol && board[i][2] === symbol) {
+      if (board[i][0] === value && board[i][1] === value && board[i][2] === value) {
         return true;
       }
-    }
-
-    for (let i = 0; i < 3; i++) {
-      if (board[0][i] === symbol && board[1][i] === symbol && board[2][i] === symbol) {
+      if (board[0][i] === value && board[1][i] === value && board[2][i] === value) {
         return true;
       }
     }
 
     if (
-      (board[0][0] === symbol && board[1][1] === symbol && board[2][2] === symbol) ||
-      (board[0][2] === symbol && board[1][1] === symbol && board[2][0] === symbol)
+      (board[0][0] === value && board[1][1] === value && board[2][2] === value) ||
+      (board[0][2] === value && board[1][1] === value && board[2][0] === value)
     ) {
       return true;
     }
@@ -55,6 +55,12 @@ const TicTacToe = () => {
     }
   };
 
+  const handleReset = () => {
+    setTicTacToeBoard(initialBoard);
+    setWinner(null);
+    setPlayer(1);
+  };
+
   return (
     <TicTacToeWrapper>
       <h1>Tic Tac Toe</h1>
@@ -64,7 +70,7 @@ const TicTacToe = () => {
           {ticTacToeBoard.map((row, rowIndex) => (
             <tr key={rowIndex}>
               {row.map((cell, colIndex) => (
-                <td onClick={() => handleMove(rowIndex, colIndex)} key={colIndex}>
+                <td className={winner || cell !== ' ' ? 'disable' : ''} onClick={() => handleMove(rowIndex, colIndex)} key={colIndex}>
                   {cell}
                 </td>
               ))}
@@ -72,6 +78,9 @@ const TicTacToe = () => {
           ))}
         </tbody>
       </table>
+      <button onClick={handleReset} className='resetButton'>
+        Reset
+      </button>
     </TicTacToeWrapper>
   );
 };
