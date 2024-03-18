@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TicTacToeWrapper } from './styles';
 
 const TicTacToe = () => {
-  const [ticTacToeBoard, setTicTacToeBoard] = useState<(number | string)[][]>([
+  const [ticTacToeBoard, setTicTacToeBoard] = useState<string[][]>([
     [' ', ' ', ' '],
     [' ', ' ', ' '],
     [' ', ' ', ' ']
@@ -11,7 +11,7 @@ const TicTacToe = () => {
   const [winner, setWinner] = useState<number | null>(null);
 
   const handleMove = (row: number, column: number) => {
-    if (ticTacToeBoard[row][column] !== ' ' || winner !== null) return;
+    if (ticTacToeBoard[row][column] !== ' ' || winner) return;
 
     const newBoard = [...ticTacToeBoard];
     newBoard[row][column] = player === 1 ? 'X' : 'O';
@@ -25,7 +25,7 @@ const TicTacToe = () => {
     setTicTacToeBoard(newBoard);
   };
 
-  const checkWinner = (board: (number | string)[][], symbol: string): boolean => {
+  const checkWinner = (board: (string)[][], symbol: string): boolean => {
     for (let i = 0; i < 3; i++) {
       if (board[i][0] === symbol && board[i][1] === symbol && board[i][2] === symbol) {
         return true;
@@ -48,7 +48,7 @@ const TicTacToe = () => {
   };
 
   const renderMsg = (): string => {
-    if (winner !== null) {
+    if (winner) {
       return `Player ${winner} wins!`;
     } else {
       return `Next Move: Player ${player}`;
