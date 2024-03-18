@@ -1,10 +1,11 @@
 import React from 'react'
-import { RitikaWrapper } from './styles'
+import { RitikaWrapper } from './index.styled'
+import Index from './Week3'
 
 const Ritika = () => {
   return (
     <RitikaWrapper>
-      <div>Ritika Garg</div>
+    <Index/>
     </RitikaWrapper>
   )
 }
