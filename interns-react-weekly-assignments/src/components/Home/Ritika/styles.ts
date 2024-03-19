@@ -1,5 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const RitikaWrapper = styled.div`
-    
-`
+export const RitikaWrapper = styled.div``;
