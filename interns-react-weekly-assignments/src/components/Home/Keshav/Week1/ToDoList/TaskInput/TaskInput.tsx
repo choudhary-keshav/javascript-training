@@ -1,11 +1,10 @@
-import React, { FunctionComponent } from 'react'
-import { useState } from 'react'
+import React, { FunctionComponent } from 'react';
+import { useState } from 'react';
 import { useToDoContext } from '../../context/ToDoContext';
 import { TaskInputWrapper } from './Style';
 import { Task } from '../../interface/interfaces';
 
 const TaskInput: FunctionComponent = () => {
-
   const { addTask } = useToDoContext();
 
   const [task, setTask] = useState<Task>({
@@ -35,30 +34,31 @@ const TaskInput: FunctionComponent = () => {
 
   return (
     <TaskInputWrapper>
-      <div className="taskInputContainer">
-        <div className="dueDateBox">
-          <p className="dueHeading">Due Date</p>
+      <div className='taskInputContainer'>
+        <div className='dueDateBox'>
+          <p className='dueHeading'>Due Date</p>
           <input
-            type="date"
-            className="dueDate"
-            placeholder="Enter due date"
+            type='date'
+            className='dueDate'
+            placeholder='Enter due date'
             min={new Date().toISOString().split('T')[0]}
             value={task.dueDate}
             onChange={handleDueDateChange}
           />
         </div>
         <input
-          type="text"
-          className="taskInputBox"
-          placeholder="Write upcoming tasks here..."
+          type='text'
+          className='taskInputBox'
+          placeholder='Write upcoming tasks here...'
           value={task.description}
           onChange={handleDescriptionChange}
         />
-        <button onClick={handleAddTask} className={isBothInputFilled ? "addTaskButton" : "addTaskButton unclickable"}>Add Task</button>
+        <button onClick={handleAddTask} className={isBothInputFilled ? 'addTaskButton' : 'addTaskButton unclickable'}>
+          Add Task
+        </button>
       </div>
     </TaskInputWrapper>
   );
 };
 
-
-export default TaskInput
+export default TaskInput;
