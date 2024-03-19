@@ -36,10 +36,9 @@ const WeatherDisplay: React.FC = () => {
               description: data.weather[0].description
             })
           : null;
-        console.log(data);
       })
       .catch((error) => {
-        console.log(error.statusCode, 'rnljsngr');
+        console.log(error);
       });
   };
 
