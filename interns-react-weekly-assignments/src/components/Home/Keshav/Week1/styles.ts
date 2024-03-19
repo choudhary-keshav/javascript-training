@@ -1,5 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Week1Wrapper = styled.div`
-    
-`
+export const Week1Wrapper = styled.div``;

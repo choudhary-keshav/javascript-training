@@ -1,5 +1,3 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const ShreyanshWrapper = styled.div`
-    
-`
+export const ShreyanshWrapper = styled.div``;

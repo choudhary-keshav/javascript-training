@@ -20,12 +20,12 @@ const DeleteModal: React.FunctionComponent<{
 
   return (
     <TaskFormWrapper>
-      <div className='add-task'>
+      <div className='addTask'>
         <div className='cross' onClick={() => setShowDeleteModal(false)}>
           x
         </div>
         <div className='header'>{message.deleteConfirmation}</div>
-        <div className='input-field-container'>
+        <div className='inputFieldContainer'>
           <button onClick={() => deleteTask(deleteTaskId)}>Confirm</button>
         </div>
       </div>

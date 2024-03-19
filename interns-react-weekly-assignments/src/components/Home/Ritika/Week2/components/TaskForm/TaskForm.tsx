@@ -2,7 +2,7 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { TaskFormWrapper } from './TaskForm.styled';
 import { Tasks } from '../../utils/interfaces/interfaces';
 import warning from '../../utils/constants/constants.json';
-import { Validations } from '../../utils/validations/validations';
+import { addFormValidations } from '../../utils/validations/validations';
 
 const TaskForm: React.FunctionComponent<{
   setTasksToShow: React.Dispatch<React.SetStateAction<Tasks[]>>;
@@ -15,12 +15,11 @@ const TaskForm: React.FunctionComponent<{
   const taskStatus = 'Pending';
   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
+  const [exceedingLimitWarning, setExceedingLimitWarning] = useState(false);
   const [tasks, setTasks] = useState<Tasks[]>(() => {
     const storedTasks = localStorage.getItem('tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
-
-  const [exceedingLimitWarning, setExceedingLimitWarning] = useState(false);
 
   useEffect(() => {
     setTasksToShow(tasks);
@@ -44,8 +43,8 @@ const TaskForm: React.FunctionComponent<{
     }
   };
   const addTasks = useCallback(() => {
-    if (Validations(taskName, taskDescription, taskCompletionDate)) {
-      popUpWithWarning(Validations(taskName, taskDescription, taskCompletionDate) || null);
+    if (addFormValidations(taskName, taskDescription, taskCompletionDate)) {
+      popUpWithWarning(addFormValidations(taskName, taskDescription, taskCompletionDate) || null);
       return;
     }
 
@@ -67,8 +66,8 @@ const TaskForm: React.FunctionComponent<{
   }, [setShowAddTask, taskCompletionDate, taskDescription, taskName, tasks, taskStatus]);
 
   const editTasks = () => {
-    if (Validations(taskName, taskDescription, taskCompletionDate)) {
-      popUpWithWarning(Validations(taskName, taskDescription, taskCompletionDate) || null);
+    if (addFormValidations(taskName, taskDescription, taskCompletionDate)) {
+      popUpWithWarning(addFormValidations(taskName, taskDescription, taskCompletionDate) || null);
       return;
     }
     let updatedTasks: Tasks[] = [];
@@ -92,7 +91,7 @@ const TaskForm: React.FunctionComponent<{
   };
   return (
     <TaskFormWrapper>
-      <div className='add-task'>
+      <div className='addTask'>
         <div
           onClick={() => {
             setShowAddTask(false);
@@ -101,7 +100,7 @@ const TaskForm: React.FunctionComponent<{
           x
         </div>
         <div className='header'>{selectedTask ? <h1> Edit Task</h1> : <h1>Add Task</h1>}</div>
-        <div className='input-field-container'>
+        <div className='inputFieldContainer'>
           <input
             type='text'
             placeholder='Item'

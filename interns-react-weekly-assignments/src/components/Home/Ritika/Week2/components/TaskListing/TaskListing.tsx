@@ -8,7 +8,7 @@ import { faTrash, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import logo from '../../assets/download-removebg-preview.png';
 import { formatDate } from '../../utils/dateFormation/dateFormater';
 
-const TaskListing = () => {
+const TaskListing: React.FC = () => {
   const [tasksToShow, setTasksToShow] = useState<Tasks[]>([]);
   const [selectedTask, setSelectedTask] = useState<Tasks | null>(null);
   const [showAddTask, setShowAddTask] = useState<boolean>(false);
@@ -62,14 +62,14 @@ const TaskListing = () => {
           setTasks={setTasks}
         />
       )}
-      <div className='task-list-container'>
-        <h2 className='main-heading'>
+      <div className='taskListContainer'>
+        <h2 className='mainHeading'>
           To-Do List
           <img src={logo} alt='logo' />
         </h2>
         <div className='heading-buttons'>
           <button
-            className='add-task-button'
+            className='addTaskButton'
             onClick={() => {
               setShowAddTask(true);
               setSelectedTask(null);
@@ -82,7 +82,7 @@ const TaskListing = () => {
             <option value='Done'>Done</option>
           </select>
         </div>
-        <table className='task-table'>
+        <table className='taskTable'>
           <thead>
             <tr>
               <th className='s_no'>S No</th>
@@ -107,19 +107,19 @@ const TaskListing = () => {
                     <td>{task.description}</td>
                     <td>{formatDate(task.date)}</td>
                     <td>
-                      <div className='button-container'>
+                      <div className='buttonContainer'>
                         <button className={`task-status status-${task.status}`} onClick={() => toggleStatus(task.id)}>
                           {' '}
                           {task.status}
                         </button>
                         <button
-                          className='delete-button'
+                          className='deleteButton'
                           onClick={() => {
                             handleDelete(task.id);
                           }}>
                           <FontAwesomeIcon icon={faTrash} />
                         </button>
-                        <button className='edit-button' onClick={() => editTask(task)}>
+                        <button className='editButton' onClick={() => editTask(task)}>
                           <FontAwesomeIcon icon={faPenToSquare} />
                         </button>
                       </div>

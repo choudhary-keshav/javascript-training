@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
-import useEmployeeDetails from './useEmployeeDetails';
-import statusOptions from '../../../Keshav/Week3/utils/statusOptions';
-import { validateInput, alreadyExistUser } from '../utils/validation';
+import statusOptions from '../../../../Keshav/Week3/utils/statusOptions';
+import { FriendInputDetailProps } from '../../interfaces/interface';
+import { validateInput, validateAlreadyExistUser } from '../../utils/validation';
 
-const FriendInputDetail = () => {
+const FriendInputDetail: React.FC<FriendInputDetailProps> = ({ addEmployee, employees }) => {
   const [currentStatus, setCurrentStatus] = useState<string>('');
   const [name, setName] = useState<string>('');
-  const { employees, addEmployee } = useEmployeeDetails();
 
-  const handleAddEmployee = () => {
-    alreadyExistUser(employees, name);
-    validateInput(name, currentStatus);
+  const handleAddEmployee = (): void => {
+    if (!validateInput(name, currentStatus)) return;
+    if (!validateAlreadyExistUser(employees, name)) return;
     addEmployee(name, currentStatus);
     setCurrentStatus('');
     setName('');
   };
 
-  const handleEmployeeNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmployeeNameChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setName(e.target.value);
   };
 
@@ -29,7 +28,7 @@ const FriendInputDetail = () => {
       <select value={currentStatus} onChange={(e) => setCurrentStatus(e.target.value)} className='inputFields'>
         <option>Employee-Status</option>
 
-        {statusOptions.map((Status) => (
+        {statusOptions.map((Status: string) => (
           <option key={Status} value={Status}>
             {Status}
           </option>

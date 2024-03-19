@@ -1,39 +1,38 @@
 import styled from 'styled-components';
 
-export const TaskListingWrapper = styled.div
-`
-    font-family: 'Segoe UI';
-    height: 100%;
-    position: relative;
-    background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
-    padding: 30px;
+export const TaskListingWrapper = styled.div`
+  font-family: 'Segoe UI';
+  height: 100vh;
+  position: relative;
+  background: radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%);
+  padding: 30px;
 
-.main-heading{
+  .mainHeading {
     color: rgb(0, 0, 0);
-    font-size:30px;
+    font-size: 30px;
     text-align: center;
     margin-top: 0px;
     align-items: center;
     justify-content: center;
     display: flex;
-}
+  }
 
-.task-list-container{
+  .taskListContainer {
     margin: auto;
     width: 100%;
-}
+  }
 
-.completed-task-container{
-    margin: 150px auto ;
+  .completedTaskContainer {
+    margin: 150px auto;
     width: fit-content;
-}
+  }
 
-.completed-task-container h2{
+  .completedTaskContainer h2 {
     font-size: 18px;
     color: rgb(128, 128, 128);
-}
+  }
 
-.add-task-button{
+  .addTaskButton {
     padding: 6px;
     background-color: rgb(0, 0, 0);
     border: none;
@@ -43,50 +42,50 @@ export const TaskListingWrapper = styled.div
     width: 150px;
     margin: 15px 0px 15px auto;
     cursor: pointer;
-}
-.task-table{
+  }
+  .taskTable {
     margin: auto;
-}
+  }
 
-.task-table th{
+  .taskTable th {
     padding: 10px 50px;
-    border-bottom: solid rgb(0,0,0,0.4) 0.5px;
+    border-bottom: solid rgb(0, 0, 0, 0.4) 0.5px;
     margin: 0px;
     border-collapse: collapse;
-    font-size:18px;
-    font-weight:700;
-}
-.task-table td{
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .taskTable td {
     padding: 10px 50px;
-    border-bottom: solid rgb(0,0,0,0.2) 0.5px;
+    border-bottom: solid rgb(0, 0, 0, 0.2) 0.5px;
     border-collapse: collapse;
     align-items: center;
-}
-.button-container{
+  }
+  .buttonContainer {
     display: flex;
     gap: 10px;
-}
+  }
 
-.delete-button{
+  .deleteButton {
     background-color: rgb(52, 52, 52);
     color: rgb(255, 255, 255);
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-}
+  }
 
-.edit-button{
+  .editButton {
     background-color: rgb(52, 52, 52);
     color: rgb(255, 255, 255);
     padding: 5px 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
-}
+  }
 
-.status-Done{
-    background-color: rgb(255, 87, 51) ;
+  .status-Done {
+    background-color: rgb(255, 87, 51);
     padding: 5px;
     border-radius: 10px;
     display: flex;
@@ -97,9 +96,9 @@ export const TaskListingWrapper = styled.div
     justify-content: center;
     width: 100px;
     cursor: pointer;
-}
-.status-Pending{
-    background-color:rgb(0, 128, 0) ;
+  }
+  .status-Pending {
+    background-color: rgb(0, 128, 0);
     padding: 5px;
     border-radius: 10px;
     display: flex;
@@ -110,8 +109,8 @@ export const TaskListingWrapper = styled.div
     justify-content: center;
     width: 100px;
     cursor: pointer;
-}
-#filter{
+  }
+  #filter {
     padding: 6px;
     background-color: rgb(0, 0, 0);
     border: none;
@@ -121,17 +120,16 @@ export const TaskListingWrapper = styled.div
     width: 150px;
     margin: auto 15px;
     cursor: pointer;
-}
-img{
-    height:40px;
-    width:40px;
-    padding-left:3px;
-}
-
-@media(max-width: 1000px) {
-    .s_no{
-        display:none;
-    }
+  }
+  img {
+    height: 40px;
+    width: 40px;
+    padding-left: 3px;
   }
 
+  @media (max-width: 1000px) {
+    .s_no {
+      display: none;
+    }
+  }
 `;

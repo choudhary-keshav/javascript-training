@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const FriendStatusWrapper = styled.div`
-  background-color: aliceblue;
+  background-color: #f0f8ff;
   height: 800px;
   width: 70%;
-  border: 2px solid black;
+  border: 2px solid #000000;
   margin: 12px auto;
 
   .headings {
@@ -17,7 +17,7 @@ export const FriendStatusWrapper = styled.div`
     padding: 10px;
     margin: 5px 0;
     width: 100%;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 5px;
     font-size: 16px;
   }
@@ -27,7 +27,7 @@ export const FriendStatusWrapper = styled.div`
     margin: 8px 0;
     width: 100%;
     background-color: #007bff;
-    color: white;
+    color: #ffffff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -42,25 +42,24 @@ export const FriendStatusWrapper = styled.div`
     margin-top: 30px;
   }
   @media screen and (max-width: 576px) {
-  .AutoFocusWrapper {
-    max-width: 40%;
-  }
+    .AutoFocusWrapper {
+      max-width: 40%;
+    }
 
-  .form {
-    width: 40%;
-  }
+    .form {
+      width: 40%;
+    }
 
-  .headings {
-    font-size: 16px;
-  }
+    .headings {
+      font-size: 16px;
+    }
 
-  .inputFields,
-  .submitButton {
-    font-size: 14px;
+    .inputFields,
+    .submitButton {
+      font-size: 14px;
+    }
   }
-}
-`
-
+`;
 export const EmployeeList = styled.ul`
   list-style-type: none;
   padding: 0;
@@ -72,7 +71,7 @@ export const EmployeeItem = styled.li`
 
 export const EmployeeButton = styled.button`
   background-color: #007bff;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 4px;
   padding: 8px 12px;
@@ -92,4 +91,3 @@ export const EmployeeButton = styled.button`
     font-size: 12px;
   }
 `;
-;

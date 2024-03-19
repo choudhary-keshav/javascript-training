@@ -1,23 +1,25 @@
-import { Employee } from "../interfaces/interface";
-import warnings from "../utils/constants.json"
+import { toast } from 'react-toastify';
+import { Employee } from '../interfaces/interface';
+import warnings from '../utils/constants.json';
 
-export const validateInput = (name:string,currentStatus:string) => {
-    if (name.trim() === '' || currentStatus === 'Employee-Status') {
-      alert(warnings.properInputWarning);
-      return false;
-    }
-    return true;
-  };
-  
-export const validationInputAutoFocus=(name:string,phoneNumber:string)=>{
-    if (!name.trim() || !phoneNumber.trim()) {
-        alert('Please provide both name and phone number.');
-        return;
-    }
-}
-export const alreadyExistUser=(employees:Employee[],name:string)=>{
-  if (employees.some(employee => employee.employeeName === name.trim())) {
-    alert('Employee with this name already exists!');
+export const validateInput = (name: string, currentStatus: string) => {
+  if (name.trim() === '' || currentStatus === 'Employee-Status') {
+    toast.warn(warnings.properInputWarning);
+    return false;
+  }
+  return true;
+};
+
+export const validateInputAutoFocus = (name: string, phoneNumber: string) => {
+  if (!name.trim() || !phoneNumber.trim()) {
+    toast.warn(warnings.autoFocusInputWarning);
     return;
   }
-}
+};
+export const validateAlreadyExistUser = (employees: Employee[], name: string) => {
+  if (employees.some((employee) => employee.employeeName === name.trim())) {
+    toast.warn(warnings.alreadyExistUser);
+    return false;
+  }
+  return true;
+};

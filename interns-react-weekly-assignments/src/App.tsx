@@ -12,6 +12,8 @@ import Week3 from './components/Home/Keshav/Week3';
 import Week4 from './components/Home/Keshav/Week4';
 import Week2 from './components/Home/Ritika/Week2';
 import RWeek3  from './components/Home/Ritika/Week3';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
@@ -34,6 +36,7 @@ const App = () => {
         </Route>
         <Route path='*' element={<NotFound />}></Route>
       </Routes>
+      <ToastContainer/>
     </AppWrapper>
   );
 };

@@ -11,15 +11,15 @@ const FilterTask = () => {
   };
 
   return (
-      <FilterTaskWrapper>
-        <select value={filterValue} onChange={handleFilterChange} name="" id="filter">
-          <option value="showAll">Show All Tasks</option>
-          <option value="showCompleted">Show Completed Tasks</option>
-          <option value="showPending">Show Pending Tasks</option>
-          <option value="orderDueDatesEarliest">Sort Tasks by Earliest Due Dates</option>
-          <option value="orderDueDatesFurthest">Sort Tasks by Furthest Due Dates</option>
-        </select>
-      </FilterTaskWrapper>
+    <FilterTaskWrapper>
+      <select value={filterValue} onChange={handleFilterChange} name='' id='filter'>
+        <option value='showAll'>Show All Tasks</option>
+        <option value='showCompleted'>Show Completed Tasks</option>
+        <option value='showPending'>Show Pending Tasks</option>
+        <option value='orderDueDatesEarliest'>Sort Tasks by Earliest Due Dates</option>
+        <option value='orderDueDatesFurthest'>Sort Tasks by Furthest Due Dates</option>
+      </select>
+    </FilterTaskWrapper>
   );
 };
 
