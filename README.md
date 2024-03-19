@@ -1,8 +1,1 @@
-# javascript-training
-
-Thank you for checking out this repository, which hosts assignments from trainees at InTimeTec. Each trainee's work is organized into individual branches. The current trainees contributing to this repository are:
-
-1. Keshav Choudhary
-2. Aditya Sharma       -  @aditya-s-19
-3. Ritika Garg
-4. Shreyansh Khatri
+For accessing week-4 assignment of Keshav, you have to save a file in root folder named ".env.local" and place your secret API key as REACT_APP_WEATHER_API_KEY={YOUR_API_KEY}
