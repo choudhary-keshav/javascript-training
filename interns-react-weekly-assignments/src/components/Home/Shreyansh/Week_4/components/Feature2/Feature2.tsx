@@ -29,7 +29,7 @@ const Feature2: React.FC = () => {
   return (
     <Feature2Wrapper>
       <h1> Calculator</h1>
-      <div className="calculator-container">
+      <div className="calculatorContainer">
         <input type="text" value={expression} readOnly />
         {buttonLayout.map((row, rowIndex) => (
           <div key={rowIndex}>

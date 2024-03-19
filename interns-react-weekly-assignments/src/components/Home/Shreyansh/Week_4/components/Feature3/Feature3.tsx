@@ -40,7 +40,7 @@ const Feature3: React.FC = () => {
 
   return (
     <Feature3Wrapper>
-      <div className="currency-converter-container">
+      <div className="currencyConverterContainer">
         <h2>Currency Converter</h2>
         <div>
           <label>Amount:</label>

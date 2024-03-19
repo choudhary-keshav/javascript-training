@@ -10,8 +10,7 @@ import NotFound from './components/NotFound';
 import Week1 from './components/Home/Keshav/Week1';
 import Week3 from './components/Home/Keshav/Week3';
 import Week4 from './components/Home/Keshav/Week4';
-import Week4_Shreyansh from './components/Home/Shreyansh/Week4_Shreyansh'
-
+import Week_4 from './components/Home/Shreyansh/Week_4'
 const App = () => {
   return (
     <AppWrapper>
@@ -26,7 +25,7 @@ const App = () => {
           </Route>
           <Route path='aditya' element={<Aditya />}></Route>
           <Route path='shreyansh' element={<Shreyansh />}>
-            <Route path='week4-Shreyansh/*' element={<Week4_Shreyansh/>}></Route>
+            <Route path='week4/*' element={<Week_4/>}></Route>
           </Route>
           <Route path='ritika' element={<Ritika />}></Route>
         </Route>

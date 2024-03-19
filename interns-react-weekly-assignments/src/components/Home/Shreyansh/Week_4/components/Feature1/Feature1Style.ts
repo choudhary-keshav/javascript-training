@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const Feature1Wrapper = styled.div`
-  .fun-fact-container {
+  .funFactContainer {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -9,14 +9,14 @@ export const Feature1Wrapper = styled.div`
     border-radius: 10px;
     box-shadow: 0 0 5px #00001a;
   }
-  .fun-fact-container h2 {
+  .funFactContainer h2 {
     font-size: 24px;
     margin-bottom: 10px;
   }
-  .fun-fact-container p {
+  .funFactContainer p {
     margin-bottom: 20px;
   }
-  .fun-fact-container button {
+  .funFactContainer button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #ffffff;
@@ -24,7 +24,7 @@ export const Feature1Wrapper = styled.div`
     border-radius: 5px;
     cursor: pointer;
   }
-  .fun-fact-container button:hover {
+  .funFactContainer button:hover {
     background-color: #0056b3;
   }
 `;

@@ -1,10 +1,10 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 
-const Week4 = () => {
+const Week_4 = () => {
   return (
   <Dashboard/>
   );
 };
 
-export default Week4;
+export default Week_4;

@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const Feature2Wrapper = styled.div`
-  .calculator-container {
+  .calculatorContainer {
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
@@ -12,7 +12,7 @@ export const Feature2Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-  .calculator-container input[type="text"] {
+  .calculatorContainer input[type="text"] {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
@@ -25,7 +25,7 @@ export const Feature2Wrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
   }
-  .calculator-container button {
+  .calculatorContainer button {
     width: 23%;
     padding: 10px;
     background-color: #007bff;
@@ -35,7 +35,7 @@ export const Feature2Wrapper = styled.div`
     cursor: pointer;
     margin: 2px;
   }
-  .calculator-container button:hover {
+  .calculatorContainer button:hover {
     background-color: #0056b3;
   }
 `;

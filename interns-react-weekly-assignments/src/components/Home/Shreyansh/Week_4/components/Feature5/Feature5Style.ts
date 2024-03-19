@@ -1,14 +1,14 @@
 import { styled } from "styled-components";
 
 export const Feature5Wrapper = styled.div`
-  .goal-tracker-container {
+  .goalTrackerContainer {
     max-width: 600px;
     margin: 0 auto;
   }
-  .goal-input {
+  .goalInput {
     margin-bottom: 10px;
   }
-  .goal-input input[type="text"] {
+  .goalInput input[type="text"] {
     width: calc(100% - 80px);
     padding: 8px;
     border: 1px solid #cccccc;
@@ -16,7 +16,7 @@ export const Feature5Wrapper = styled.div`
     outline: none;
     margin: 5px;
   }
-  .goal-input button {
+  .goalInput button {
     width: 80px;
     padding: 8px;
     border: none;
@@ -25,10 +25,10 @@ export const Feature5Wrapper = styled.div`
     border-radius: 5px;
     cursor: pointer;
   }
-  .goal-list {
+  .goalList {
     margin-top: 20px;
   }
-  .goal-item {
+  .goalItem {
     background-color: #f8f9fa;
     padding: 10px;
     border: 1px solid #cccccc;
@@ -39,21 +39,21 @@ export const Feature5Wrapper = styled.div`
     margin: 5px;
     width: calc(100% - 80px);
   }
-  .goal-item.completed {
+  .goalItem.completed {
     background-color: #c3e6cb;
   }
-  .goal-item span {
+  .goalItem span {
     flex-grow: 1;
     margin-right: 10px;
   }
-  .goal-item div {
+  .goalItem div {
     display: flex;
     align-items: center;
   }
-  .goal-item input[type="checkbox"] {
+  .goalItem input[type="checkbox"] {
     margin-right: 10px;
   }
-  .goal-item button {
+  .goalItem button {
     padding: 5px;
     border: none;
     background-color: #ff3333;

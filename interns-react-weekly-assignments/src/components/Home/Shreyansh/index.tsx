@@ -12,8 +12,8 @@ const Shreyansh = () => {
   return (
     <ShreyanshWrapper>
       <div className='weekButtonsContainer'>
-        <Link to='week4-Shreyansh'>
-          <button className={`weekButton ${selectedWeek === 'week4-Shreyansh' ? 'active' : ''}`} value='week4-Shreyansh' onClick={handleWeekClick}>
+        <Link to='week4'>
+          <button className={`weekButton ${selectedWeek === 'week4' ? 'active' : ''}`} value='week4' onClick={handleWeekClick}>
             Week-4
           </button>
         </Link>

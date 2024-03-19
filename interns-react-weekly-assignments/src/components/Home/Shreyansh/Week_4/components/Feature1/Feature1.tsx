@@ -17,7 +17,7 @@ const Feature1: React.FC = () => {
 
   return (
     <Feature1Wrapper>
-      <div className="fun-fact-container">
+      <div className="funFactContainer">
         <h2>Random Fun Fact</h2>
         <p>{fact}</p>
         <button onClick={fetchRandomFact}>Next Fact</button>

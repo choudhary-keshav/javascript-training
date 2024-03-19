@@ -33,9 +33,9 @@ const Feature4: React.FC = () => {
 
   return (
     <Feature4Wrapper>
-      <div className="budget-container">
+      <div className="budgetContainer">
         <h2>Budget Planner and Expense Tracker</h2>
-        <div className="expense-form">
+        <div className="expenseForm">
           <input
             type="text"
             value={description}
@@ -50,9 +50,9 @@ const Feature4: React.FC = () => {
           />
           <button onClick={handleAddExpense}>Add Expense</button>
         </div>
-        <ul className="expense-list">
+        <ul className="expenseList">
           {expenses.map((expense) => (
-            <li key={expense.id} className="expense-item">
+            <li key={expense.id} className="expenseItem">
               {expense.description} - &#8377;{expense.amount}
               <button onClick={() => handleRemoveExpense(expense.id)}>
                 Remove
@@ -60,7 +60,7 @@ const Feature4: React.FC = () => {
             </li>
           ))}
         </ul>
-        <div className="total-expenses">
+        <div className="totalExpenses">
           Total Expenses: &#8377;{totalExpenses}
         </div>
       </div>
