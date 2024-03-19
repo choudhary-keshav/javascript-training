@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MainWrapper = styled.div`
+export const Week2Wrapper = styled.div`
   
   
 `

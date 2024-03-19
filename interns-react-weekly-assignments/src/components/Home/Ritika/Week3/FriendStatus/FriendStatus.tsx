@@ -1,23 +1,22 @@
-import React, {  } from 'react';
+import React from 'react';
 import FriendInputDetail from './FriendInputDetail';
 import useEmployeeDetails from './useEmployeeDetails';
 import statusOptions from '../../../Keshav/Week3/utils/statusOptions';
-import { FriendStatusWrapper,EmployeeList,EmployeeItem,EmployeeButton } from './FriendStatus.styled';
-import {Employee} from "../interfaces/interface"
+import { FriendStatusWrapper, EmployeeList, EmployeeItem, EmployeeButton } from './FriendStatus.styled';
+import { Employee } from '../interfaces/interface';
 
 const FriendStatus = () => {
-  const { employees,updateState } = useEmployeeDetails();
-   
+  const { employees, updateState } = useEmployeeDetails();
+
   const handleStatusChange = (employeeIndex: number) => {
     const currentIndex = statusOptions.indexOf(employees[employeeIndex].employeeStatus);
     const nextIndex = (currentIndex + 1) % statusOptions.length;
-    const temp:Employee[] = employees;
+    const temp: Employee[] = employees;
     temp[employeeIndex].employeeStatus = statusOptions[nextIndex];
     localStorage.setItem('employees', JSON.stringify(temp));
-    updateState(temp)
+    updateState(temp);
   };
   
-
   return (
     <FriendStatusWrapper>
       <FriendInputDetail />

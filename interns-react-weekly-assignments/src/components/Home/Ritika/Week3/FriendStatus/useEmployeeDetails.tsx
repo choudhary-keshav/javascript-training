@@ -11,12 +11,12 @@ const useEmployeeDetails = () => {
     setEmployees(updatedEmployees);
     localStorage.setItem('employees', JSON.stringify(updatedEmployees));
   };
-  
-  const updateState=(employeeArray:Employee[])=>{
-     setEmployees([...employeeArray])
-  }
 
-  return { employees, addEmployee ,updateState};
+  const updateState = (employeeArray: Employee[]) => {
+    setEmployees([...employeeArray]);
+  };
+
+  return { employees, addEmployee, updateState };
 };
 
 export default useEmployeeDetails;
