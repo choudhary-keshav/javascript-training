@@ -11,7 +11,7 @@ import Week1 from './components/Home/Keshav/Week1';
 import Week3 from './components/Home/Keshav/Week3';
 import Week4 from './components/Home/Keshav/Week4';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <AppWrapper>
       <Routes>

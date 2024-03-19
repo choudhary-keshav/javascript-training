@@ -4,15 +4,15 @@ import WeatherDisplay from './WeatherDisplay';
 import { NavLink, useParams } from 'react-router-dom';
 import TicTacToe from './TicTacToe';
 
-const Week4 = () => {
+const Week4: React.FC = () => {
   const { pageId } = useParams();
   return (
     <Week4Wrapper>
       <NavLink to='1'>
-        <button className="buttons">Weather</button>
+        <button className='buttons'>Weather</button>
       </NavLink>
       <NavLink to='2'>
-        <button className="buttons">Tic-Tac-Toe</button>
+        <button className='buttons'>Tic-Tac-Toe</button>
       </NavLink>
       {pageId === '1' ? <WeatherDisplay /> : pageId === '2' ? <TicTacToe /> : null}
     </Week4Wrapper>

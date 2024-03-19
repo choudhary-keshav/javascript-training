@@ -1,5 +1,5 @@
-export interface User{
-    userId: number,
-    username: string,
-    status: string,
+export interface User {
+  userId: number;
+  username: string;
+  status: string;
 }

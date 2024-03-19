@@ -1,12 +1,11 @@
-import React, { FunctionComponent, useState } from 'react'
-import EditModal from './EditModal/EditModal'
-import { ToDoGridWrapper } from './Style'
+import React, { useState } from 'react';
+import EditModal from './EditModal/EditModal';
+import { ToDoGridWrapper } from './Style';
 import { Completed, Incompleted, Edit, Delete } from './../../assets';
-import { useToDoContext } from '../../context/ToDoContext'
-import DeleteModal from './DeleteModal/DeleteModal'
+import { useToDoContext } from '../../context/ToDoContext';
+import DeleteModal from './DeleteModal/DeleteModal';
 
-const ToDoGrid:FunctionComponent = () => {
-
+const ToDoGrid: React.FC = () => {
   const { tasks, updateTaskStatus, filterValue } = useToDoContext();
 
   const [showEditModal, setShowEditModal] = useState(false);
@@ -16,7 +15,7 @@ const ToDoGrid:FunctionComponent = () => {
 
   const changeCompletionStatus = (taskId: number) => {
     updateTaskStatus(taskId, '');
-  }
+  };
 
   const closeEditModal = () => setShowEditModal(false);
   const closeDeleteModal = () => setShowDeleteModal(false);
@@ -35,10 +34,10 @@ const ToDoGrid:FunctionComponent = () => {
 
   switch (filterValue) {
     case 'showCompleted':
-      filteredTasks = tasks.filter(task => task.isCompleted);
+      filteredTasks = tasks.filter((task) => task.isCompleted);
       break;
     case 'showPending':
-      filteredTasks = tasks.filter(task => !task.isCompleted);
+      filteredTasks = tasks.filter((task) => !task.isCompleted);
       break;
     case 'orderDueDatesEarliest':
       filteredTasks = tasks.slice().sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime());
@@ -56,21 +55,23 @@ const ToDoGrid:FunctionComponent = () => {
         <thead>
           <tr>
             <th>Task Status</th>
-            <th className="taskDescription">My Tasks</th>
+            <th className='taskDescription'>My Tasks</th>
             <th>Due Date</th>
             <th>Action</th>
           </tr>
         </thead>
         <tbody>
-          {filteredTasks.map(task => (
+          {filteredTasks.map((task) => (
             <tr key={task.id}>
-              <td><img onClick={()=>changeCompletionStatus(task.id)} src={task.isCompleted? Completed:Incompleted} alt="" /></td>
+              <td>
+                <img onClick={() => changeCompletionStatus(task.id)} src={task.isCompleted ? Completed : Incompleted} alt='' />
+              </td>
               <td>{task.description}</td>
               <td>{task.dueDate}</td>
               <td>
                 <div>
-                  <img onClick={()=>handleEditClick(task.id)} src={Edit} alt="" />
-                  <img onClick={()=>handleDeleteClick(task.id)} src={Delete} alt="" />
+                  <img onClick={() => handleEditClick(task.id)} src={Edit} alt='' />
+                  <img onClick={() => handleDeleteClick(task.id)} src={Delete} alt='' />
                 </div>
               </td>
             </tr>
@@ -80,9 +81,8 @@ const ToDoGrid:FunctionComponent = () => {
 
       {showEditModal && <EditModal taskId={selectedTaskId} closeEditModal={closeEditModal} />}
       {showDeleteModal && <DeleteModal taskId={selectedTaskId} closeDeleteModal={closeDeleteModal} />}
-      
     </ToDoGridWrapper>
   );
-}
+};
 
-export default ToDoGrid
+export default ToDoGrid;
