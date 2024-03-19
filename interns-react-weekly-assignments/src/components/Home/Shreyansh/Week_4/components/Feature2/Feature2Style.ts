@@ -20,7 +20,7 @@ export const Feature2Wrapper = styled.div`
     border-radius: 5px;
     box-sizing: border-box;
   }
-  .calculator-container div {
+  .calculatorContainer div {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
