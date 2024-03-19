@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { UseEffectHookWrapper } from './styles';
 
-const UseEffectHook = () => {
+const UseEffectHook: React.FC = () => {
   const nameInputRef = useRef<HTMLInputElement>(null);
 
   const [formData, setFormData] = useState({

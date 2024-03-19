@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import { EditModalWrapper } from './Style';
 import { useToDoContext } from '../../../context/ToDoContext';
 
@@ -7,7 +7,7 @@ interface EditModalProps {
   taskId: number;
 }
 
-const EditModal: FunctionComponent<EditModalProps> = ({ closeEditModal, taskId }) => {
+const EditModal : React.FC<EditModalProps> = ({ closeEditModal, taskId }) => {
   const { tasks, updateDueDate, updateTaskDescription } = useToDoContext();
   const [editedTaskDescription, setEditedTaskDescription] = useState(tasks.find((task) => task.id === taskId)?.description || '');
   const [editedDueDate, setEditedDueDate] = useState(tasks.find((task) => task.id === taskId)?.dueDate || '');

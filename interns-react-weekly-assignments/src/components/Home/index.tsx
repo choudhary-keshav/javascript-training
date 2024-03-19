@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { HomeWrapper } from './styles';
 
-const Home = () => {
+const Home: React.FC = () => {
   const [selectedIntern, setSelectedIntern] = useState('');
 
   const handleInternClick = (e: React.MouseEvent<HTMLButtonElement>) => {

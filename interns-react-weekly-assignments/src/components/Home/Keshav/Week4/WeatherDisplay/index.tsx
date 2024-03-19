@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { WeatherDisplayWrapper } from './styles';
-import { ERROR_401, ERROR_404, ERROR_429 } from '../utils/apiErrorMessages';
+import { ERROR_401, ERROR_404_CITY_ERROR, ERROR_429 } from '../utils/apiErrorMessages';
 
-const WeatherDisplay = () => {
-  const [cityName, setCityName] = useState('');
+const WeatherDisplay: React.FC = () => {
+  const [cityName, setCityName] = useState<string>('');
   const [apiCode, setApiCode] = useState<number | string>(-1);
   const [weatherDetails, setWeatherDetails] = useState({
     city: '',
@@ -36,10 +36,9 @@ const WeatherDisplay = () => {
               description: data.weather[0].description
             })
           : null;
-        console.log(data);
       })
       .catch((error) => {
-        console.log(error.statusCode, 'rnljsngr');
+        console.log(error);
       });
   };
 
@@ -72,7 +71,7 @@ const WeatherDisplay = () => {
       {apiCode &&
         cityName &&
         (apiCode === '404' ? (
-          <p className='apiError'>{ERROR_404}</p>
+          <p className='apiError'>{ERROR_404_CITY_ERROR}</p>
         ) : apiCode === '429' ? (
           <p className='apiError'>{ERROR_429}</p>
         ) : apiCode === '401' ? (

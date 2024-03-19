@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TicTacToeWrapper } from './styles';
 
-const TicTacToe = () => {
+const TicTacToe: React.FC = () => {
   const initialBoard = [
     [' ', ' ', ' '],
     [' ', ' ', ' '],

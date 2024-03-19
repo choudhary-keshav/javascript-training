@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { KeshavWrapper } from './styles';
 
-const Keshav = () => {
-  const [selectedWeek, setSelectedWeek] = useState('');
+const Keshav: React.FC = () => {
+  const [selectedWeek, setSelectedWeek] = useState<string>('');
 
   const handleWeekClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     setSelectedWeek(e.currentTarget.value);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UseStateHookWrapper } from './styles';
 
-const UseStateHook = () => {
+const UseStateHook: React.FC = () => {
   const [count, setCount] = useState<number>(0);
 
   const buttonValues = [-10, -5, -2, -1, 0, 1, 2, 5, 10];

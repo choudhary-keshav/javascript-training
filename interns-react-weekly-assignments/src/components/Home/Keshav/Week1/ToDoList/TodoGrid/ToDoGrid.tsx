@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState } from 'react';
+import React, { useState } from 'react';
 import EditModal from './EditModal/EditModal';
 import { ToDoGridWrapper } from './Style';
 import { Completed, Incompleted, Edit, Delete } from './../../assets';
 import { useToDoContext } from '../../context/ToDoContext';
 import DeleteModal from './DeleteModal/DeleteModal';
 
-const ToDoGrid: FunctionComponent = () => {
+const ToDoGrid: React.FC = () => {
   const { tasks, updateTaskStatus, filterValue } = useToDoContext();
 
   const [showEditModal, setShowEditModal] = useState(false);
