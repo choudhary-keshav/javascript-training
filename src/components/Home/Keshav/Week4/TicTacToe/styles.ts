@@ -19,8 +19,23 @@ export const TicTacToeWrapper = styled.div`
     cursor: pointer;
   }
 
-  button {
-    height: 100px;
-    width: 100px;
+  .resetButton {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #ff5945;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    padding: 15px;
+  }
+
+  .resetButton:hover {
+    background-color: #b32b13;
+  }
+
+  .disable:hover {
+    cursor: not-allowed;
   }
 `;

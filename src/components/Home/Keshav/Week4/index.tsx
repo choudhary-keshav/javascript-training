@@ -4,7 +4,7 @@ import WeatherDisplay from './WeatherDisplay';
 import { NavLink, useParams } from 'react-router-dom';
 import TicTacToe from './TicTacToe';
 
-const Week4 = () => {
+const Week4: React.FC = () => {
   const { pageId } = useParams();
   return (
     <Week4Wrapper>

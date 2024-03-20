@@ -15,7 +15,7 @@ import RWeek3 from './components/Home/Ritika/Week3';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <AppWrapper>
       <Routes>

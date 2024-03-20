@@ -4,7 +4,7 @@ import { useUserData } from './useUserData';
 import FriendStatusInput from './FriendStatusInput';
 import ShowFriendStatus from './ShowFriendStatus';
 
-const CustomHook = () => {
+const CustomHook: React.FC = () => {
   const { userData, addUser, changeStatus } = useUserData();
 
   return (

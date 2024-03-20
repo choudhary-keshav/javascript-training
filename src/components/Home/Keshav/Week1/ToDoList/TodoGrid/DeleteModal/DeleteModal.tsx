@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { DeleteModalWrapper } from './Style';
 import { useToDoContext } from '../../../context/ToDoContext';
 
@@ -7,7 +7,7 @@ interface DeleteModalProps {
   taskId: number;
 }
 
-const DeleteModal: FunctionComponent<DeleteModalProps> = ({ closeDeleteModal, taskId }) => {
+const DeleteModal: React.FC<DeleteModalProps> = ({ closeDeleteModal, taskId }) => {
   const { tasks, setTasks } = useToDoContext();
 
   const deleteTask = () => {
