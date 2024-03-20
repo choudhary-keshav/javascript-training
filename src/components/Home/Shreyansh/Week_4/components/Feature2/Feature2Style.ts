@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Feature2Wrapper = styled.div`
   .calculatorContainer {
@@ -12,7 +12,7 @@ export const Feature2Wrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-  .calculatorContainer input[type="text"] {
+  .calculatorContainer input[type='text'] {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;

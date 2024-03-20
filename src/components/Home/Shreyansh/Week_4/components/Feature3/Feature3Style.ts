@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Feature3Wrapper = styled.div`
   .currencyConverterContainer {
@@ -19,7 +19,7 @@ export const Feature3Wrapper = styled.div`
     margin-bottom: 10px;
     font-weight: bold;
   }
-  .currencyConverterContainer input[type="number"],
+  .currencyConverterContainer input[type='number'],
   .currencyConverterContainer select {
     width: 100%;
     padding: 10px;

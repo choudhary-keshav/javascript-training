@@ -25,7 +25,7 @@ const TicTacToe = () => {
     setTicTacToeBoard(newBoard);
   };
 
-  const checkWinner = (board: (string)[][], symbol: string): boolean => {
+  const checkWinner = (board: string[][], symbol: string): boolean => {
     for (let i = 0; i < 3; i++) {
       if (board[i][0] === symbol && board[i][1] === symbol && board[i][2] === symbol) {
         return true;

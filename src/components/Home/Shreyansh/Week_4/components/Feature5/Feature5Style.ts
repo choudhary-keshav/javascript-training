@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const Feature5Wrapper = styled.div`
   .goalTrackerContainer {
@@ -8,7 +8,7 @@ export const Feature5Wrapper = styled.div`
   .goalInput {
     margin-bottom: 10px;
   }
-  .goalInput input[type="text"] {
+  .goalInput input[type='text'] {
     width: calc(100% - 80px);
     padding: 8px;
     border: 1px solid #cccccc;
@@ -50,7 +50,7 @@ export const Feature5Wrapper = styled.div`
     display: flex;
     align-items: center;
   }
-  .goalItem input[type="checkbox"] {
+  .goalItem input[type='checkbox'] {
     margin-right: 10px;
   }
   .goalItem button {

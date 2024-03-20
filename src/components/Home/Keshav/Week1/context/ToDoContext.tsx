@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import {Task, ToDoContextType} from "./../interface/interfaces"
+import { Task, ToDoContextType } from './../interface/interfaces';
 
 const ToDoContext = createContext<ToDoContextType | undefined>(undefined);
 
@@ -19,7 +19,7 @@ export const ToDoProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const [tasks, setTasks] = useState<Task[]>(getTasksFromSessionStorage);
 
-  const [filterValue, setFilterValue] = useState<string>("showAll");
+  const [filterValue, setFilterValue] = useState<string>('showAll');
 
   const addTask = (task: Task) => {
     task.isCompleted = false;
@@ -28,26 +28,26 @@ export const ToDoProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   };
 
   const createUpdateTaskFunction = (updateField: string) => (taskId: number, value: string) => {
-    setTasks(prevTasks => {
+    setTasks((prevTasks) => {
       const updatedTasks = prevTasks.map((task) => {
-          if (task.id === taskId) {
-              if(updateField === "isCompleted") {
-                  return {
-                      ...task,
-                      [updateField]: !task.isCompleted
-                  };
-              }
-              return {
-                  ...task,
-                  [updateField]: value,
-              };
+        if (task.id === taskId) {
+          if (updateField === 'isCompleted') {
+            return {
+              ...task,
+              [updateField]: !task.isCompleted
+            };
           }
-          return task;
+          return {
+            ...task,
+            [updateField]: value
+          };
+        }
+        return task;
       });
       return updatedTasks;
     });
   };
-  
+
   const updateTaskStatus = createUpdateTaskFunction('isCompleted');
   const updateDueDate = createUpdateTaskFunction('dueDate');
   const updateTaskDescription = createUpdateTaskFunction('description');
@@ -62,9 +62,8 @@ export const ToDoProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         updateDueDate,
         updateTaskDescription,
         setTasks,
-        setFilterValue,
-      }}
-    >
+        setFilterValue
+      }}>
       {children}
     </ToDoContext.Provider>
   );

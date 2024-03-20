@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const DashboardWrapper = styled.div`
   .dashboard-container {
@@ -10,7 +10,7 @@ export const DashboardWrapper = styled.div`
   }
   .navbar {
     background-color: #000080;
-    padding: 10px ;
+    padding: 10px;
     border-radius: 10px;
     display: flex;
     justify-content: center;

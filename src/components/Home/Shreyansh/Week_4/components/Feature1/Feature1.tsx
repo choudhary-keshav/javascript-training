@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Feature1Wrapper } from "./Feature1Style";
-import { APIKEY } from "./utils";
+import React, { useState, useEffect } from 'react';
+import { Feature1Wrapper } from './Feature1Style';
+import { APIKEY } from './utils';
 
 const Feature1: React.FC = () => {
-  const [fact, setFact] = useState<string>("");
+  const [fact, setFact] = useState<string>('');
 
   const fetchRandomFact = async () => {
     const response = await fetch(APIKEY);
@@ -17,7 +17,7 @@ const Feature1: React.FC = () => {
 
   return (
     <Feature1Wrapper>
-      <div className="funFactContainer">
+      <div className='funFactContainer'>
         <h2>Random Fun Fact</h2>
         <p>{fact}</p>
         <button onClick={fetchRandomFact}>Next Fact</button>
