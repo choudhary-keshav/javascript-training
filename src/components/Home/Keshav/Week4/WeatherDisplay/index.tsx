@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { WeatherDisplayWrapper } from './styles';
+import { ERROR_401, ERROR_404_CITY_ERROR, ERROR_429 } from '../utils/apiErrorMessages';
 
-const WeatherDisplay = () => {
-  const [cityName, setCityName] = useState('');
+const WeatherDisplay: React.FC = () => {
+  const [cityName, setCityName] = useState<string>('');
   const [apiCode, setApiCode] = useState<number | string>(-1);
   const [weatherDetails, setWeatherDetails] = useState({
     city: '',
@@ -22,7 +23,6 @@ const WeatherDisplay = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setApiCode(data.cod);
         data.cod === 200
           ? setWeatherDetails({
@@ -71,15 +71,11 @@ const WeatherDisplay = () => {
       {apiCode &&
         cityName &&
         (apiCode === '404' ? (
-          <p className='apiError'>City not found!</p>
+          <p className='apiError'>{ERROR_404_CITY_ERROR}</p>
         ) : apiCode === '429' ? (
-          <p className='apiError'>Too many requests! You made more than 60 API requests in a minute!</p>
+          <p className='apiError'>{ERROR_429}</p>
         ) : apiCode === '401' ? (
-          <p>
-            You did not specify your API key in API request. (or) Your API key is not activated yet. Within the next couple of hours, it
-            will be activated and ready to use. (or) You are using wrong API key in API request. Please, check your right API key in
-            personal account. (or) You are using a Free subscription and try requesting data available in other subscriptions .
-          </p>
+          <p>{ERROR_401}</p>
         ) : null)}
     </WeatherDisplayWrapper>
   );

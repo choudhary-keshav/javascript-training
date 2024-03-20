@@ -4,7 +4,7 @@ import UseStateHook from './UseStateHook';
 import UseEffectHook from './UseEffectHook';
 import CustomHook from './CustomHook';
 
-const Week3 = () => {
+const Week3: React.FC = () => {
   return (
     <Week3Wrapper>
       <UseStateHook />
