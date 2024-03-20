@@ -14,6 +14,7 @@ import Week2 from './components/Home/Ritika/Week2';
 import RWeek3 from './components/Home/Ritika/Week3';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdityaWeek3 from './components/Home/Aditya/Week3';
 
 const App: React.FC = () => {
   return (
@@ -27,7 +28,9 @@ const App: React.FC = () => {
               <Route path=':pageId' element={<Week4 />}></Route>
             </Route>
           </Route>
-          <Route path='aditya' element={<Aditya />}></Route>
+          <Route path='/aditya' element={<Aditya />}>
+            <Route path='/aditya/week3' element={<AdityaWeek3 />}></Route>
+          </Route>
           <Route path='shreyansh' element={<Shreyansh />}></Route>
           <Route path='ritika' element={<Ritika />}>
             <Route path='week2' element={<Week2 />}></Route>
