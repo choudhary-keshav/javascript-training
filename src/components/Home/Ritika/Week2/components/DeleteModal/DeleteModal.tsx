@@ -3,7 +3,7 @@ import { Tasks } from '../../utils/interfaces/interfaces';
 import { TaskFormWrapper } from '../TaskForm/TaskForm.styled';
 import message from '../../utils/constants/constants.json';
 
-const DeleteModal: React.FunctionComponent<{
+const DeleteModal: React.FC<{
   setTasksToShow: React.Dispatch<React.SetStateAction<Tasks[]>>;
   tasksToShow: Tasks[];
   deleteTaskId: number;

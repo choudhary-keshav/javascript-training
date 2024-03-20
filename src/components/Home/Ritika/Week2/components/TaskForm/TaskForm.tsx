@@ -9,7 +9,7 @@ const TaskForm: React.FunctionComponent<{
   selectedTask: Tasks | null;
   setShowAddTask: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setTasksToShow, selectedTask, setShowAddTask }) => {
-  const [taskName, setTaskName] = useState<string>(selectedTask ? selectedTask.value : '');
+  const [taskName, setTaskName] = useState<string>(selectedTask?.value ?? '');
   const [taskDescription, setTaskDescription] = useState<string>(selectedTask?.description ?? '');
   const [taskCompletionDate, setTaskCompletionDate] = useState<string>(selectedTask?.date ?? '');
   const taskStatus = 'Pending';
