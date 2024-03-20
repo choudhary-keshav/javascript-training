@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Feature1Wrapper } from './Feature1Style';
+import { RandomFactsWrapper } from './RandomFactsStyle';
 import { APIKEY } from './utils';
 
-const Feature1: React.FC = () => {
+const RandomFacts: React.FC = () => {
   const [fact, setFact] = useState<string>('');
 
-  const fetchRandomFact = async () => {
+  const fetchRandomFact = async (): Promise<void> => {
     const response = await fetch(APIKEY);
     const data = await response.json();
     setFact(data.text);
@@ -16,14 +16,14 @@ const Feature1: React.FC = () => {
   }, []);
 
   return (
-    <Feature1Wrapper>
+    <RandomFactsWrapper>
       <div className='funFactContainer'>
         <h2>Random Fun Fact</h2>
         <p>{fact}</p>
         <button onClick={fetchRandomFact}>Next Fact</button>
       </div>
-    </Feature1Wrapper>
+    </RandomFactsWrapper>
   );
 };
 
-export default Feature1;
+export default RandomFacts;

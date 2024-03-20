@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Feature2Wrapper } from './Feature2Style';
+import { CalculatorWrapper } from './CalculatorStyle';
 
-const Feature2: React.FC = () => {
+const Calculator: React.FC = () => {
   const [expression, setExpression] = useState<string>('');
 
   const handleButtonClick = (value: string) => {
@@ -27,7 +27,7 @@ const Feature2: React.FC = () => {
   ];
 
   return (
-    <Feature2Wrapper>
+    <CalculatorWrapper>
       <h1> Calculator</h1>
       <div className='calculatorContainer'>
         <input type='text' value={expression} readOnly />
@@ -41,8 +41,8 @@ const Feature2: React.FC = () => {
           </div>
         ))}
       </div>
-    </Feature2Wrapper>
+    </CalculatorWrapper>
   );
 };
 
-export default Feature2;
+export default Calculator;

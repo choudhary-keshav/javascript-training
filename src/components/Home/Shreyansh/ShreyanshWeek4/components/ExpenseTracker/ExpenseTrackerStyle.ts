@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Feature4Wrapper = styled.div`
+export const ExpenseTrackerWrapper = styled.div`
   .budgetContainer {
     max-width: 600px;
     margin: 0 auto;
@@ -24,6 +24,7 @@ export const Feature4Wrapper = styled.div`
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-left: 20px;
   }
   .expenseForm button:hover {
     background-color: #0056b3;
@@ -31,6 +32,9 @@ export const Feature4Wrapper = styled.div`
   .expenseList {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .expenseItem {
     display: flex;
@@ -40,6 +44,8 @@ export const Feature4Wrapper = styled.div`
     background-color: #ffffff;
     border-radius: 5px;
     margin-bottom: 5px;
+    word-break: break-all;
+    width: 60%;
   }
   .expenseItem button {
     padding: 5px 8px;
@@ -55,5 +61,8 @@ export const Feature4Wrapper = styled.div`
   .totalExpenses {
     margin-top: 10px;
     font-weight: bold;
+  }
+  #description {
+    width: 40%;
   }
 `;

@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Feature2Wrapper = styled.div`
+export const CalculatorWrapper = styled.div`
   .calculatorContainer {
     max-width: 300px;
     margin: 0 auto;

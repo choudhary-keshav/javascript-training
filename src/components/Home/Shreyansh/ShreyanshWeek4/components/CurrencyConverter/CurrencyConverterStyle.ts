@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Feature3Wrapper = styled.div`
+export const CurrencyConverterWrapper = styled.div`
   .currencyConverterContainer {
     max-width: 400px;
     margin: 0 auto;

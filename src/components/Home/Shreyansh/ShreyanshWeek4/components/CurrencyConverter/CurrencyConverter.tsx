@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Feature3Wrapper } from './Feature3Style';
+import { CurrencyConverterWrapper } from './CurrencyConverterStyle';
 import { APIKEY } from './utils';
 
-const Feature3: React.FC = () => {
+const CurrencyConverter: React.FC = () => {
   const [amount, setAmount] = useState<number>(1);
   const [baseCurrency, setBaseCurrency] = useState<string>('USD');
   const [targetCurrency, setTargetCurrency] = useState<string>('EUR');
   const [exchangeRate, setExchangeRate] = useState<number>(0);
+  const currencies = ['USD', 'EUR', 'INR'];
 
   useEffect(() => {
-    const fetchExchangeRate = async () => {
+    const fetchExchangeRate = async (): Promise<void> => {
       const response = await fetch(`${APIKEY}${baseCurrency}`);
       const data = await response.json();
       setExchangeRate(data.rates[targetCurrency]);
@@ -17,25 +18,21 @@ const Feature3: React.FC = () => {
     fetchExchangeRate();
   }, [baseCurrency, targetCurrency]);
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const value = parseFloat(e.target.value);
     setAmount(isNaN(value) ? 0 : value);
   };
 
-  const handleBaseCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setBaseCurrency(e.target.value);
-  };
-
-  const handleTargetCurrencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setTargetCurrency(e.target.value);
-  };
-
-  const convertCurrency = () => {
-    return amount * exchangeRate;
+  const generateCurrencyOptions = (): JSX.Element[] => {
+    return currencies.map((currency: string) => (
+      <option key={currency} value={currency}>
+        {currency}
+      </option>
+    ));
   };
 
   return (
-    <Feature3Wrapper>
+    <CurrencyConverterWrapper>
       <div className='currencyConverterContainer'>
         <h2>Currency Converter</h2>
         <div>
@@ -44,28 +41,24 @@ const Feature3: React.FC = () => {
         </div>
         <div>
           <label>From:</label>
-          <select value={baseCurrency} onChange={handleBaseCurrencyChange}>
-            <option value='USD'>USD</option>
-            <option value='EUR'>EUR</option>
-            <option value='INR'>INR</option>
+          <select value={baseCurrency} onChange={(e) => setBaseCurrency(e.target.value)}>
+            {generateCurrencyOptions()}
           </select>
         </div>
         <div>
           <label>To:</label>
-          <select value={targetCurrency} onChange={handleTargetCurrencyChange}>
-            <option value='EUR'>EUR</option>
-            <option value='USD'>USD</option>
-            <option value='INR'>INR</option>
+          <select value={targetCurrency} onChange={(e) => setTargetCurrency(e.target.value)}>
+            {generateCurrencyOptions()}
           </select>
         </div>
         <div>
           <p>
-            Result: {convertCurrency()} {targetCurrency}
+            Result: {amount * exchangeRate} {targetCurrency}
           </p>
         </div>
       </div>
-    </Feature3Wrapper>
+    </CurrencyConverterWrapper>
   );
 };
 
-export default Feature3;
+export default CurrencyConverter;

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { Feature5Wrapper } from './Feature5Style';
-import { Goal } from './interfaceFeature5';
+import { GoalTrackerWrapper } from './GoalTrackerStyle';
+import { Goal } from './interface';
 
-const Feature5: React.FC = () => {
+const GoalTracker: React.FC = () => {
   const [goals, setGoals] = useState<Goal[]>([]);
   const [newGoal, setNewGoal] = useState<string>('');
   const [description, setDescription] = useState<string>('');
   const [deadline, setDeadline] = useState<string>('');
 
-  const handleAddGoal = () => {
+  const handleAddGoal = (): void => {
     if (newGoal.trim()) {
       const newGoalObj: Goal = {
         id: Date.now(),
@@ -24,7 +24,7 @@ const Feature5: React.FC = () => {
     }
   };
 
-  const handleToggleCompletion = (id: number) => {
+  const handleToggleCompletion = (id: number): void => {
     setGoals((prevGoals) =>
       prevGoals.map((goal) => {
         if (goal.id === id) {
@@ -35,25 +35,31 @@ const Feature5: React.FC = () => {
     );
   };
 
-  const handleDeleteGoal = (id: number) => {
+  const handleDeleteGoal = (id: number): void => {
     setGoals((prevGoals) => prevGoals.filter((goal) => goal.id !== id));
   };
 
   return (
-    <Feature5Wrapper>
+    <GoalTrackerWrapper>
       <div className='goalTrackerContainer'>
         <h2>Personal Goal Tracker</h2>
-        <div className='goal-input'>
+        <div className='goalInput'>
           <input type='text' placeholder='Enter your goal' value={newGoal} onChange={(e) => setNewGoal(e.target.value)} />
           <input type='text' placeholder='Description (optional)' value={description} onChange={(e) => setDescription(e.target.value)} />
-          <input type='text' placeholder='Deadline (optional)' value={deadline} onChange={(e) => setDeadline(e.target.value)} />
+          <input
+            type='date'
+            placeholder='Deadline (optional)'
+            value={deadline}
+            onChange={(e) => setDeadline(e.target.value)}
+            min={new Date().toISOString().split('T')[0]}
+          />
           <button onClick={handleAddGoal}>Add Goal</button>
         </div>
         <div className='goalList'>
           {goals.map((goal) => (
-            <div key={goal.id} className={`goaltem ${goal.completed ? 'completed' : ''}`}>
+            <div key={goal.id} className={`goalItem ${goal.completed ? 'completed' : ''}`}>
               <div>
-                <span>{goal.title}</span>
+                <span id='title'>{goal.title}</span>
                 {goal.description && <p id='description'>Description: {goal.description}</p>}
                 {goal.deadline && <p id='deadline'>Deadline: {goal.deadline}</p>}
               </div>
@@ -65,8 +71,8 @@ const Feature5: React.FC = () => {
           ))}
         </div>
       </div>
-    </Feature5Wrapper>
+    </GoalTrackerWrapper>
   );
 };
 
-export default Feature5;
+export default GoalTracker;

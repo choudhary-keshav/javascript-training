@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Feature5Wrapper = styled.div`
+export const GoalTrackerWrapper = styled.div`
   .goalTrackerContainer {
     max-width: 600px;
     margin: 0 auto;
@@ -8,7 +8,8 @@ export const Feature5Wrapper = styled.div`
   .goalInput {
     margin-bottom: 10px;
   }
-  .goalInput input[type='text'] {
+  .goalInput input[type='text'],
+  .goalInput input[type='date'] {
     width: calc(100% - 80px);
     padding: 8px;
     border: 1px solid #cccccc;
@@ -27,6 +28,9 @@ export const Feature5Wrapper = styled.div`
   }
   .goalList {
     margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .goalItem {
     background-color: #f8f9fa;
@@ -38,6 +42,7 @@ export const Feature5Wrapper = styled.div`
     align-items: center;
     margin: 5px;
     width: calc(100% - 80px);
+    word-break: break-all;
   }
   .goalItem.completed {
     background-color: #c3e6cb;
@@ -60,9 +65,14 @@ export const Feature5Wrapper = styled.div`
     color: #ffffff;
     border-radius: 10px;
     cursor: pointer;
+    margin: 5px;
   }
   #description,
   #deadline {
     margin: 5px;
+  }
+  #title,
+  #description {
+    max-width: 200px;
   }
 `;

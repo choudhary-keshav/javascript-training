@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Feature4Wrapper } from './Feature4Style';
-import { Expense } from './interfaceFeature4';
+import { ExpenseTrackerWrapper } from './ExpenseTrackerStyle';
+import { Expense } from './interface';
 
-const Feature4: React.FC = () => {
+const ExpenseTracker: React.FC = () => {
   const [expenses, setExpenses] = useState<Expense[]>([]);
   const [description, setDescription] = useState<string>('');
   const [amount, setAmount] = useState<number>(0);
 
-  const handleAddExpense = () => {
+  const handleAddExpense = (): void => {
     if (description.trim() !== '' && amount > 0) {
       const newExpense: Expense = {
         id: expenses.length + 1,
@@ -20,16 +20,15 @@ const Feature4: React.FC = () => {
     }
   };
 
-  const handleRemoveExpense = (id: number) => {
+  const handleRemoveExpense = (id: number): void => {
     setExpenses((prevExpenses) => prevExpenses.filter((expense) => expense.id !== id));
   };
 
   const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
-
   return (
-    <Feature4Wrapper>
+    <ExpenseTrackerWrapper>
       <div className='budgetContainer'>
-        <h2>Budget Planner and Expense Tracker</h2>
+        <h2>Expense Tracker</h2>
         <div className='expenseForm'>
           <input type='text' value={description} placeholder='Enter expense description' onChange={(e) => setDescription(e.target.value)} />
           <input type='number' value={amount} placeholder='Enter expense amount' onChange={(e) => setAmount(parseFloat(e.target.value))} />
@@ -38,15 +37,15 @@ const Feature4: React.FC = () => {
         <ul className='expenseList'>
           {expenses.map((expense) => (
             <li key={expense.id} className='expenseItem'>
-              {expense.description} - &#8377;{expense.amount}
+              <span id='description'>{expense.description}</span> &#8377; &nbsp;{expense.amount}
               <button onClick={() => handleRemoveExpense(expense.id)}>Remove</button>
             </li>
           ))}
         </ul>
         <div className='totalExpenses'>Total Expenses: &#8377;{totalExpenses}</div>
       </div>
-    </Feature4Wrapper>
+    </ExpenseTrackerWrapper>
   );
 };
 
-export default Feature4;
+export default ExpenseTracker;

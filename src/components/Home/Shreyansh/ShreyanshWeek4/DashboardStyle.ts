@@ -5,7 +5,7 @@ export const DashboardWrapper = styled.div`
     max-width: 800px;
     margin: 30px auto 0;
     padding: 20px;
-    background-color: gray;
+    background-color: #808080;
     border-radius: 10px;
   }
   .navbar {

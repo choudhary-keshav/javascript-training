@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-export const Feature1Wrapper = styled.div`
+export const RandomFactsWrapper = styled.div`
   .funFactContainer {
     max-width: 400px;
     margin: 0 auto;
