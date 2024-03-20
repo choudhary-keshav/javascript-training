@@ -10,7 +10,7 @@ interface ShowFriendStatusProps {
 }
 
 const ShowFriendStatus: React.FC<ShowFriendStatusProps> = ({ userData, changeStatus }) => {
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState<string>('');
 
   const [filteredData, setFilteredData] = useState(userData);
 
@@ -46,14 +46,10 @@ const ShowFriendStatus: React.FC<ShowFriendStatusProps> = ({ userData, changeSta
           </p>
         </div>
       ))}
-      {userData.length ? (
-        filteredData.length ? (
-          <p className='resultMessage'>{filteredData.length} matching results found!</p>
-        ) : (
-          <p className='resultMessage'>No matching results found!</p>
-        )
-      ) : (
-        <p></p>
+      {userData.length && (
+        <p className='resultMessage'>
+          {filteredData.length ? `${filteredData.length} matching results found!` : `No matching results found!`}
+        </p>
       )}
     </ShowFriendStatusWrapper>
   );
