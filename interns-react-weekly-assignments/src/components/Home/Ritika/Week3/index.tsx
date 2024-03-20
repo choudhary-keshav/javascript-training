@@ -4,7 +4,7 @@ import AutoFocus from './AutoFocus/AutoFocus';
 import FriendStatus from './FriendStatus/ShowFriendStatus/FriendStatus';
 import { Week3Wrapper } from './index.styled';
 
-const Week3Main = () => {
+const Week3Main:React.FC = () => {
   return (
     <Week3Wrapper>
       <CounterApp />
