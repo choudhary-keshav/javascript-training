@@ -1,10 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { FormDiv } from './formStyles';
-import { getTodayDate } from '../../utils/utils';
-
-interface Profile {
-  [key: string]: string;
-}
+import { FormWrapper } from './formStyles';
+import { getTodayDate, removeWhitespace } from '../../utils/functions';
+import { Profile } from '../../interfaces/interfaces';
 
 const Form: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -22,17 +19,33 @@ const Form: React.FC = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const name = e.target.name;
+    let value = e.target.value;
+    if (name === 'name') {
+      value = removeWhitespace(value);
+    }
     setProfile((oldProfile) => {
-      oldProfile[e.target.name] = e.target.value;
+      oldProfile[name] = value;
       return { ...oldProfile };
     });
   };
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    e.preventDefault();
+    setProfile({
+      name: '',
+      dob: '',
+      phone: '',
+      email: ''
+    });
+    alert('Your submission was successful!');
+  };
+
   return (
-    <FormDiv>
+    <FormWrapper>
       <h1 id='heading'>Form App</h1>
       <div id='container'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor='name'>Name:</label>
           <input name='name' type='text' value={profile.name} onChange={handleChange} ref={inputRef} required />
           <label htmlFor='dob'>Date of Birth:</label>
@@ -54,7 +67,7 @@ const Form: React.FC = () => {
           </button>
         </form>
       </div>
-    </FormDiv>
+    </FormWrapper>
   );
 };
 

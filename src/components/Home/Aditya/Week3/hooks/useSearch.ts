@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
-import { removeWhitespace } from '../utils/utils';
-
-interface User {
-  name: string;
-  status: string;
-}
+import { removeWhitespace } from '../utils/functions';
+import { User } from '../interfaces/interfaces';
 
 const useSearch = (name: string): User[] => {
   const [data, setData] = useState<User[]>([]);

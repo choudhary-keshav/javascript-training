@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
-import { SearchUserDiv } from './searchUserStyles';
+import { SearchUserWrapper } from './searchUserStyles';
 import useSearch from '../../hooks/useSearch';
-
-interface User {
-  name: string;
-  status: string;
-}
+import { statusChoices } from '../../utils/constants';
+import { User } from '../../interfaces/interfaces';
 
 const SearchUser: React.FC = () => {
   const [search, setSearch] = useState<string>('');
   const results: User[] = useSearch(search);
-
-  const statusChoices: string[] = ['Busy', 'Active', 'Do not disturb', 'Idle'];
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.target.value);
   };
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const { name, value } = e.target;
     const users = JSON.parse(localStorage.getItem('users') ?? '[]');
     const updatedUsers = users.map((user: User) =>
-      user.name === e.target.name
+      user.name === name
         ? {
-            name: e.target.name,
-            status: e.target.value
+            name: name,
+            status: value
           }
         : user
     );
@@ -31,10 +27,10 @@ const SearchUser: React.FC = () => {
   };
 
   return (
-    <SearchUserDiv>
+    <SearchUserWrapper>
       <div id='container'>
         <h1>Search</h1>
-        <label htmlFor='search' className='font17'>
+        <label htmlFor='search' className='fontMedium'>
           Search:
         </label>
         <input type='text' className='userDetail' name='search' value={search} onChange={handleSearch} />
@@ -52,7 +48,7 @@ const SearchUser: React.FC = () => {
           </div>
         ))}
       </div>
-    </SearchUserDiv>
+    </SearchUserWrapper>
   );
 };
 

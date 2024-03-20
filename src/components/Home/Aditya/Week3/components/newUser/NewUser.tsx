@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { NewUserDiv } from './newUserStyles';
-import { removeWhitespace } from '../../utils/utils';
-
-interface User {
-  name: string;
-  status: string;
-}
+import { NewUserWrapper } from './newUserStyles';
+import { removeWhitespace } from '../../utils/functions';
+import { statusChoices } from '../../utils/constants';
+import { User } from '../../interfaces/interfaces';
 
 const NewUser: React.FC = () => {
   const [users, setUsers] = useState<User[]>(JSON.parse(localStorage.getItem('users') ?? '[]'));
@@ -15,15 +12,12 @@ const NewUser: React.FC = () => {
     status: ''
   });
 
-  const statusChoices: string[] = ['Busy', 'Active', 'Do not disturb', 'Idle'];
-
   useEffect(() => {
     localStorage.setItem('users', JSON.stringify(users));
   }, [users]);
 
   const handleUserChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>): void => {
-    const name = e.target.name;
-    const value = e.target.value;
+    const { name, value } = e.target;
     if (name === 'name') {
       setIsValidUsername(!users.find((user) => user.name === value) && value.length < 13 && !!value);
     }
@@ -36,8 +30,12 @@ const NewUser: React.FC = () => {
 
   const handleNewUser = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
+    const updatedUser = {
+      ...newUser,
+      name: newUser.name.trim()
+    };
     setUsers((oldUsers) => {
-      return [...oldUsers, newUser];
+      return [...oldUsers, updatedUser];
     });
     setIsValidUsername(false);
     setNewUser({
@@ -47,16 +45,16 @@ const NewUser: React.FC = () => {
   };
 
   return (
-    <NewUserDiv>
+    <NewUserWrapper>
       <div id='newUser'>
         <h1>New User</h1>
         <form onSubmit={handleNewUser}>
-          <label htmlFor='name' className='font17'>
+          <label htmlFor='name' className='fontMedium'>
             Name:
           </label>
           <input className='wide userDetail' type='text' name='name' value={newUser.name} onChange={handleUserChange} />
-          <p className='warning font17'>&nbsp;{!isValidUsername && 'Invalid Username'}</p>
-          <label htmlFor='status' className='font17'>
+          <p className='warning fontMedium'>&nbsp;{!isValidUsername && 'Invalid Username'}</p>
+          <label htmlFor='status' className='fontMedium'>
             Status:
           </label>
           <select className='wide userDetail' name='status' id='selectStatus' value={newUser.status} onChange={handleUserChange}>
@@ -69,13 +67,13 @@ const NewUser: React.FC = () => {
               </option>
             ))}
           </select>
-          <p className='warning font17'>&nbsp;{!newUser.status && 'Invalid Status'}</p>
+          <p className='warning fontMedium'>&nbsp;{!newUser.status && 'Invalid Status'}</p>
           <button type='submit' id='submit' disabled={!isValidUsername || !newUser.status}>
             Submit
           </button>
         </form>
       </div>
-    </NewUserDiv>
+    </NewUserWrapper>
   );
 };
 

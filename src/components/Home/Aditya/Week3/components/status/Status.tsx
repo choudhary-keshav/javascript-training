@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusDiv } from './statusStyles';
+import { StatusWrapper } from './statusStyles';
 import SearchUser from '../searchUser/SearchUser';
 import NewUser from '../newUser/NewUser';
 
@@ -11,18 +11,26 @@ const Status: React.FC = () => {
   };
 
   return (
-    <StatusDiv>
-      <input type='radio' id='newUser' name='component' onChange={handleToggle} value='newUser' checked={!isSearchDiv} />
-      <label htmlFor='newUser' id='newUserLabel' className='font17'>
+    <StatusWrapper>
+      <input className='toggle' type='radio' id='newUser' name='component' onChange={handleToggle} value='newUser' checked={!isSearchDiv} />
+      <label htmlFor='newUser' id='newUserLabel' className='fontMedium'>
         New User
       </label>
-      <input type='radio' id='searchUser' name='component' onChange={handleToggle} value='searchUser' checked={isSearchDiv} />
-      <label htmlFor='searchUser' className='font17'>
+      <input
+        className='toggle'
+        type='radio'
+        id='searchUser'
+        name='component'
+        onChange={handleToggle}
+        value='searchUser'
+        checked={isSearchDiv}
+      />
+      <label htmlFor='searchUser' className='fontMedium'>
         Search User
       </label>
       <br />
       {isSearchDiv ? <SearchUser /> : <NewUser />}
-    </StatusDiv>
+    </StatusWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FormDiv = styled.div`
+export const FormWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: 50%;

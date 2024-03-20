@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Assignment3Div = styled.div`
+export const Assignment3Wrapper = styled.div`
   text-align: center;
   width: 80%;
   margin: 20px auto;
@@ -11,13 +11,13 @@ export const Assignment3Div = styled.div`
   }
   #counter {
     border-radius: 20px 20px 0px 0px;
-    background-color: darkolivegreen;
+    background-color: #556b2f;
   }
   #form {
-    background-color: darkslateblue;
+    background-color: #483d8b;
   }
   #status {
     border-radius: 0px 0px 20px 20px;
-    background-color: midnightblue;
+    background-color: #191970;
   }
 `;

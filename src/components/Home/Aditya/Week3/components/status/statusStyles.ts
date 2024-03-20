@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StatusDiv = styled.div`
+export const StatusWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: 50%;
@@ -25,7 +25,7 @@ export const StatusDiv = styled.div`
   #newUserLabel {
     margin-right: 15px;
   }
-  .font17 {
+  .fontMedium {
     font-size: 17px;
   }
   @media (max-width: 600px) {

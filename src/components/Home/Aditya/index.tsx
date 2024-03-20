@@ -18,7 +18,7 @@ const Aditya: React.FC = () => {
           </button>
         </Link>
       </div>
-      <Outlet></Outlet>
+      <Outlet />
     </AdityaWrapper>
   );
 };

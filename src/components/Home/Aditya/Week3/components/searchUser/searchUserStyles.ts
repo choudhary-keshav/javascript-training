@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchUserDiv = styled.div`
+export const SearchUserWrapper = styled.div`
   .results {
     display: flex;
     justify-content: space-between;

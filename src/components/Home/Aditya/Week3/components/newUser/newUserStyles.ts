@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const NewUserDiv = styled.div`
+export const NewUserWrapper = styled.div`
   .wide {
     width: 75%;
     margin: 5px 2px;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const CounterDiv = styled.div`
+export const CounterWrapper = styled.div`
   text-align: center;
   position: absolute;
   top: 50%;
@@ -9,7 +9,7 @@ export const CounterDiv = styled.div`
   background: #f5f5dc;
   padding: 30px;
   border-radius: 10px;
-  .flex {
+  .gridWrapper {
     display: flex;
   }
   .buttonDiv {
@@ -30,14 +30,14 @@ export const CounterDiv = styled.div`
           color: #ffffff;
         }
       }
-      &:disabled{
-        cursor:not-allowed;
-        &:hover{
+      &:disabled {
+        cursor: not-allowed;
+        &:hover {
           border-color: #808080;
         }
-        &:active{
+        &:active {
           background-color: transparent;
-          color: #1010104D;
+          color: #1010104d;
         }
       }
     }

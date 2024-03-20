@@ -1,21 +1,26 @@
 import React, { useState } from 'react';
-import { CounterDiv } from './counterStyles';
+import { CounterWrapper } from './counterStyles';
 
 const Counter: React.FC = () => {
   const [count, setCount] = useState<number>(0);
-  const handleChangeCounter = (e: React.MouseEvent<HTMLButtonElement>):void => {
-    setCount(count + (+e.currentTarget.innerText));
+  const handleChangeCounter = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    setCount(count + +e.currentTarget.innerText);
   };
 
-  const changeOptions:number[] = [-1, 1, -2, 2, -5, 5, -10, 10];
+  const changeOptions: number[] = [-1, 1, -2, 2, -5, 5, -10, 10];
+  let currentOption: number = 0;
+
+  const findDisabled = (): boolean => {
+    return count + changeOptions[currentOption++] < 0;
+  };
 
   return (
-    <CounterDiv>
+    <CounterWrapper>
       <h1>Counter App</h1>
-      <div className='flex'>
+      <div className='gridWrapper'>
         <div className='buttonDiv'>
           {changeOptions.map((value) => (
-            <button key={value} className='counterButton items' onClick={handleChangeCounter} disabled={count + value < 0}>
+            <button key={value} className='counterButton items' onClick={handleChangeCounter} disabled={findDisabled()}>
               {value}
             </button>
           ))}
@@ -24,7 +29,7 @@ const Counter: React.FC = () => {
           </h1>
         </div>
       </div>
-    </CounterDiv>
+    </CounterWrapper>
   );
 };
 
