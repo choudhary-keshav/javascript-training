@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
 import { AdityaWrapper } from './styles';
+import { Link, Outlet } from 'react-router-dom';
 
 const Aditya: React.FC = () => {
   const [selectedWeek, setSelectedWeek] = useState<string>('');
