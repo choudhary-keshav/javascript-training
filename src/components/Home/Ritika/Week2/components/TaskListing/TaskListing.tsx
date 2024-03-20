@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Tasks } from '../../utils/interfaces/interfaces';
+import { Task } from '../../utils/interfaces/interfaces';
 import { TaskListingWrapper } from './TaskListing.styled';
 import TaskForm from '../TaskForm/TaskForm';
 import DeleteModal from '../DeleteModal/DeleteModal';
@@ -9,19 +9,19 @@ import logo from '../../assets/download-removebg-preview.png';
 import { formatDate } from '../../utils/dateFormation/dateFormater';
 
 const TaskListing: React.FC = () => {
-  const [tasksToShow, setTasksToShow] = useState<Tasks[]>([]);
-  const [selectedTask, setSelectedTask] = useState<Tasks | null>(null);
+  const [tasksToShow, setTasksToShow] = useState<Task[]>([]);
+  const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [showAddTask, setShowAddTask] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
   const [filter, setFilter] = useState<string>('All');
   const [deleteTaskId, setDeleteTaskId] = useState<number>(0);
-  const [tasks, setTasks] = useState<Tasks[]>(() => {
+  const [tasks, setTasks] = useState<Task[]>(() => {
     const storedTasks = localStorage.getItem('tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
 
   let serialNumber: number = 0;
-  const editTask = (task: Tasks) => {
+  const editTask = (task: Task) => {
     setSelectedTask(task);
     setShowAddTask(true);
   };
@@ -85,7 +85,7 @@ const TaskListing: React.FC = () => {
         <table className='taskTable'>
           <thead>
             <tr>
-              <th className='s_no'>S No</th>
+              <th className='sNo'>S No</th>
               <th>Name</th>
               <th>Description</th>
               <th>Date of Completion</th>
@@ -102,14 +102,13 @@ const TaskListing: React.FC = () => {
                 serialNumber++;
                 return (
                   <tr key={task.id}>
-                    <td className='s_no'> {serialNumber}</td>
+                    <td className='sNo'> {serialNumber}</td>
                     <td>{task.value}</td>
                     <td>{task.description}</td>
                     <td>{formatDate(task.date)}</td>
                     <td>
                       <div className='buttonContainer'>
                         <button className={`task-status status-${task.status}`} onClick={() => toggleStatus(task.id)}>
-                          {' '}
                           {task.status}
                         </button>
                         <button

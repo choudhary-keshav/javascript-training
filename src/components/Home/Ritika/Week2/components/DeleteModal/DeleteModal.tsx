@@ -1,14 +1,14 @@
 import React from 'react';
-import { Tasks } from '../../utils/interfaces/interfaces';
+import { Task } from '../../utils/interfaces/interfaces';
 import { TaskFormWrapper } from '../TaskForm/TaskForm.styled';
 import message from '../../utils/constants/constants.json';
 
 const DeleteModal: React.FC<{
-  setTasksToShow: React.Dispatch<React.SetStateAction<Tasks[]>>;
-  tasksToShow: Tasks[];
+  setTasksToShow: React.Dispatch<React.SetStateAction<Task[]>>;
+  tasksToShow: Task[];
   deleteTaskId: number;
   setShowDeleteModal: React.Dispatch<React.SetStateAction<boolean>>;
-  setTasks: React.Dispatch<React.SetStateAction<Tasks[]>>;
+  setTasks: React.Dispatch<React.SetStateAction<Task[]>>;
 }> = ({ setTasksToShow, tasksToShow, deleteTaskId, setShowDeleteModal, setTasks }) => {
   const deleteTask = (index: number) => {
     const newTaskList = tasksToShow.filter((task) => task.id !== index);

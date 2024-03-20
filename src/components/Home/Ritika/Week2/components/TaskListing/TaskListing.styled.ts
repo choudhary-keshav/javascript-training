@@ -128,7 +128,7 @@ export const TaskListingWrapper = styled.div`
   }
 
   @media (max-width: 1000px) {
-    .s_no {
+    .sNo {
       display: none;
     }
   }

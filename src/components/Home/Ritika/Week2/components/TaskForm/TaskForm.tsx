@@ -1,12 +1,12 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import { TaskFormWrapper } from './TaskForm.styled';
-import { Tasks } from '../../utils/interfaces/interfaces';
+import { Task } from '../../utils/interfaces/interfaces';
 import warning from '../../utils/constants/constants.json';
 import { addFormValidations } from '../../utils/validations/validations';
 
 const TaskForm: React.FunctionComponent<{
-  setTasksToShow: React.Dispatch<React.SetStateAction<Tasks[]>>;
-  selectedTask: Tasks | null;
+  setTasksToShow: React.Dispatch<React.SetStateAction<Task[]>>;
+  selectedTask: Task | null;
   setShowAddTask: React.Dispatch<React.SetStateAction<boolean>>;
 }> = ({ setTasksToShow, selectedTask, setShowAddTask }) => {
   const [taskName, setTaskName] = useState<string>(selectedTask?.value ?? '');
@@ -16,7 +16,7 @@ const TaskForm: React.FunctionComponent<{
   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [warningMessage, setWarningMessage] = useState<string>('');
   const [exceedingLimitWarning, setExceedingLimitWarning] = useState(false);
-  const [tasks, setTasks] = useState<Tasks[]>(() => {
+  const [tasks, setTasks] = useState<Task[]>(() => {
     const storedTasks = localStorage.getItem('tasks');
     return storedTasks ? JSON.parse(storedTasks) : [];
   });
@@ -36,6 +36,16 @@ const TaskForm: React.FunctionComponent<{
       setTaskCompletionDate('');
     }
   }, [selectedTask]);
+
+  const handleInputChange = (setStateFunction: React.Dispatch<React.SetStateAction<string>>, value: string, maxLength: number) => {
+    if (value.length <= maxLength) {
+      setStateFunction(value);
+      setShowWarning(false);
+      setExceedingLimitWarning(false);
+    } else {
+      setExceedingLimitWarning(true);
+    }
+  };
   const popUpWithWarning = (warning: string | null) => {
     if (warning) {
       setShowWarning(true);
@@ -48,7 +58,7 @@ const TaskForm: React.FunctionComponent<{
       return;
     }
 
-    const newTask: Tasks = {
+    const newTask: Task = {
       id: Math.floor(Math.random() * 1000),
       value: taskName,
       description: taskDescription,
@@ -70,9 +80,9 @@ const TaskForm: React.FunctionComponent<{
       popUpWithWarning(addFormValidations(taskName, taskDescription, taskCompletionDate) || null);
       return;
     }
-    let updatedTasks: Tasks[] = [];
+    let updatedTasks: Task[] = [];
     if (selectedTask) {
-      const newTask: Tasks = {
+      const newTask: Task = {
         id: selectedTask.id,
         value: taskName,
         description: taskDescription,
@@ -105,15 +115,7 @@ const TaskForm: React.FunctionComponent<{
             type='text'
             placeholder='Item'
             value={taskName}
-            onChange={(e) => {
-              if (e.target.value.length < 30) {
-                setTaskName(e.target.value.slice(0, 30));
-                setShowWarning(false);
-                setExceedingLimitWarning(false);
-              } else {
-                setExceedingLimitWarning(true);
-              }
-            }}
+            onChange={(e) => handleInputChange(setTaskName, e.target.value.slice(0, 30), 30)}
           />
           {exceedingLimitWarning && <p>{warning.properDetailsWarning}</p>}
           <input
@@ -121,15 +123,7 @@ const TaskForm: React.FunctionComponent<{
             type='text'
             placeholder='Description'
             value={taskDescription}
-            onChange={(e) => {
-              if (e.target.value.length < 70) {
-                setTaskDescription(e.target.value.slice(0, 70));
-                setShowWarning(false);
-                setExceedingLimitWarning(false);
-              } else {
-                setExceedingLimitWarning(true);
-              }
-            }}
+            onChange={(e) => handleInputChange(setTaskDescription, e.target.value.slice(0, 70), 70)}
           />
           {exceedingLimitWarning && <p>{warning.properDetailsWarning}</p>}
           <input
