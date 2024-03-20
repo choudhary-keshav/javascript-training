@@ -4,7 +4,7 @@ import AutoFocus from './AutoFocus/AutoFocus';
 import FriendStatus from './FriendStatus/ShowFriendStatus/FriendStatus';
 import { Week3Wrapper } from './index.styled';
 
-const RWeek3 = () => {
+const Week3Main = () => {
   return (
     <Week3Wrapper>
       <CounterApp />
@@ -14,4 +14,4 @@ const RWeek3 = () => {
   );
 };
 
-export default RWeek3;
+export default Week3Main;

@@ -47,10 +47,6 @@ export const AutoFocusWrapper = styled.div`
   }
 
   @media screen and (max-width: 576px) {
-    .AutoFocusWrapper {
-      max-width: 40%;
-    }
-
     .form {
       width: 40%;
     }

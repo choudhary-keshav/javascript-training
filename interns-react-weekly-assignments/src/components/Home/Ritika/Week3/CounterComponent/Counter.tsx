@@ -8,10 +8,10 @@ const CounterApp: React.FC = () => {
     <CounterWrapper>
       <p className='countValueToChange'>{count}</p>
       <div className='buttonContainer'>
-        <button onClick={handleDecrement} className='IncDncButton'>
+        <button onClick={handleDecrement} className='decrementButton'>
           Decrement
         </button>
-        <button onClick={handleIncrement} className='IncDncButton'>
+        <button onClick={handleIncrement} className='incrementButton'>
           Increment
         </button>
       </div>

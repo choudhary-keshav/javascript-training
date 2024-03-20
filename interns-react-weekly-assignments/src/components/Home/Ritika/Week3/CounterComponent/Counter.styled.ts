@@ -12,7 +12,8 @@ export const CounterWrapper = styled.div`
     font-weight: 600;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-  .IncDncButton {
+  .incrementButton,
+  .decrementButton {
     padding: 25px;
     margin: 7px;
     border: none;
