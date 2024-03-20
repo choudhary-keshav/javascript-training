@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { WeatherDisplayWrapper } from './styles';
+import { ERROR_401, ERROR_404_CITY_ERROR, ERROR_429 } from '../utils/apiErrorMessages';
 
-const WeatherDisplay = () => {
-  const [cityName, setCityName] = useState('');
-  const [isFetchErrorOccurred, setIsFetchErrorOccurred] = useState<boolean>(false);
+const WeatherDisplay: React.FC = () => {
+  const [cityName, setCityName] = useState<string>('');
+  const [apiCode, setApiCode] = useState<number | string>(-1);
   const [weatherDetails, setWeatherDetails] = useState({
     city: '',
     temperature: null,
@@ -15,30 +16,29 @@ const WeatherDisplay = () => {
     description: ''
   });
 
-  // const apiKey = '78ece225fc825d0978d6d3b2484ceeac'
-  const apiKey = 'fbfed3ecbbc94535ac1776073ef04e3b';
+  const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
   const url = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityName + '&appid=' + apiKey + '&units=metric';
 
   const fetchTemperature = () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
-        setWeatherDetails({
-          city: data.name,
-          temperature: data.main.temp,
-          latitude: data.coord.lat,
-          longitude: data.coord.lon,
-          pressure: data.main.pressure,
-          humidity: data.main.humidity,
-          country: data.sys.country,
-          description: data.weather[0].description
-        });
-        setIsFetchErrorOccurred(false);
+        setApiCode(data.cod);
+        data.cod === 200
+          ? setWeatherDetails({
+              city: data.name,
+              temperature: data.main.temp,
+              latitude: data.coord.lat,
+              longitude: data.coord.lon,
+              pressure: data.main.pressure,
+              humidity: data.main.humidity,
+              country: data.sys.country,
+              description: data.weather[0].description
+            })
+          : null;
       })
       .catch((error) => {
         console.log(error);
-        setIsFetchErrorOccurred(true);
       });
   };
 
@@ -55,9 +55,7 @@ const WeatherDisplay = () => {
         </button>
       </div>
 
-      {isFetchErrorOccurred && cityName && <p className='apiError'>Error in fetching the weather details!</p>}
-
-      {!isFetchErrorOccurred && cityName && (
+      {cityName && apiCode === 200 && (
         <div className='weatherDetailsContainer'>
           <p>City: {weatherDetails.city}</p>
           <p>Temperature: {weatherDetails.temperature}</p>
@@ -69,6 +67,16 @@ const WeatherDisplay = () => {
           <p>Country: {weatherDetails.country}</p>
         </div>
       )}
+
+      {apiCode &&
+        cityName &&
+        (apiCode === '404' ? (
+          <p className='apiError'>{ERROR_404_CITY_ERROR}</p>
+        ) : apiCode === '429' ? (
+          <p className='apiError'>{ERROR_429}</p>
+        ) : apiCode === '401' ? (
+          <p>{ERROR_401}</p>
+        ) : null)}
     </WeatherDisplayWrapper>
   );
 };

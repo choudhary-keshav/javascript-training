@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ToDoIcon } from './../assets';
 import { ToDoListWrapper } from './Style';
 import TaskInput from './TaskInput/TaskInput';
@@ -7,7 +7,7 @@ import { useToDoContext } from '../context/ToDoContext';
 import TaskSummary from './TaskSummary/TaskSummary';
 import FilterTask from './FilterTask/FilterTask';
 
-const ToDoList: FunctionComponent = () => {
+const ToDoList: React.FC = () => {
   const { tasks } = useToDoContext();
 
   useEffect(() => {
