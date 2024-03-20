@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { EditModalWrapper } from './Style';
+import { Button, EditModalWrapper } from './Style';
 import { useToDoContext } from '../../../context/ToDoContext';
 
 interface EditModalProps {
@@ -47,14 +47,12 @@ const EditModal: React.FC<EditModalProps> = ({ closeEditModal, taskId }) => {
         />
         <br />
         <br />
-        <div className='buttons'>
-          <button onClick={closeEditModal} className='button'>
-            Cancel
-          </button>
-          <button onClick={updateTask} className={isBothInputFilled ? 'button' : 'button unclickable'}>
-            Update
-          </button>
-        </div>
+        <Button onClick={closeEditModal} className='button'>
+          Cancel
+        </Button>
+        <Button onClick={updateTask} className={isBothInputFilled ? 'button' : 'button unclickable'}>
+          Update
+        </Button>
       </div>
     </EditModalWrapper>
   );

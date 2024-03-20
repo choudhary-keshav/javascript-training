@@ -2,7 +2,7 @@ import React from 'react';
 import { useToDoContext } from '../../context/ToDoContext';
 import { TaskSummaryWrapper } from './Style';
 
-const TaskSummary = () => {
+const TaskSummary: React.FC = () => {
   const { tasks } = useToDoContext();
 
   const taskSummary = {

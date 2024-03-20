@@ -55,27 +55,6 @@ export const EditModalWrapper = styled.div`
     justify-content: flex-end;
   }
 
-  .button {
-    border: none;
-    outline: none;
-    background-color: #ff5945;
-    color: #fff;
-    font-size: 16px;
-    padding: 4%;
-    cursor: pointer;
-    border-radius: 10px;
-    margin-right: 20px;
-  }
-
-  .button:hover {
-    background-color: #b32b13;
-    color: #fff;
-  }
-
-  .button:active {
-    transform: scale(0.9);
-  }
-
   .unclickable {
     cursor: not-allowed;
     display: inline-block;
@@ -99,5 +78,23 @@ export const EditModalWrapper = styled.div`
     background-color: #b32b13;
     color: #ffffff;
     border-radius: 50%;
+  }
+`;
+
+export const Button = styled.button`
+  background-color: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  padding: 4%;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 20px;
+
+  &:hover {
+    background-color: #b32b13;
+  }
+
+  &:active {
+    transform: scale(0.9);
   }
 `;
