@@ -1,8 +1,8 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 
-const Week_4 = () => {
+const Week4:React.FC = () => {
   return <Dashboard />;
 };
 
-export default Week_4;
+export default Week4;

@@ -9,7 +9,7 @@ const GoalTracker: React.FC = () => {
   const [deadline, setDeadline] = useState<string>('');
 
   const handleAddGoal = (): void => {
-    if (newGoal.trim()) {
+    if (newGoal.trim() && deadline && description) {
       const newGoalObj: Goal = {
         id: Date.now(),
         title: newGoal,
@@ -45,7 +45,7 @@ const GoalTracker: React.FC = () => {
         <h2>Personal Goal Tracker</h2>
         <div className='goalInput'>
           <input type='text' placeholder='Enter your goal' value={newGoal} onChange={(e) => setNewGoal(e.target.value)} />
-          <input type='text' placeholder='Description (optional)' value={description} onChange={(e) => setDescription(e.target.value)} />
+          <input type='text' placeholder='Description' value={description} onChange={(e) => setDescription(e.target.value)} />
           <input
             type='date'
             placeholder='Deadline (optional)'

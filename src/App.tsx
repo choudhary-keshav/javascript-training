@@ -10,7 +10,7 @@ import NotFound from './components/NotFound';
 import Week1 from './components/Home/Keshav/Week1';
 import Week3Main from './components/Home/Keshav/Week3';
 import Week4 from './components/Home/Keshav/Week4';
-import ShreyanshWeek4 from './components/Home/Shreyansh/ShreyanshWeek4';
+import ShreyanshWeek4 from './components/Home/Shreyansh/Week4';
 import Week2 from './components/Home/Ritika/Week2';
 import RWeek3 from './components/Home/Ritika/Week3';
 import { ToastContainer } from 'react-toastify';
