@@ -10,10 +10,10 @@ interface Props {
 
 const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
   const today = getTodayDate();
-  const [date, setDate] = useState(today);
-  const [task, setTask] = useState('');
-  const [isInvalidValue, setIsInvalidValue] = useState(false);
-  const [isInvalidDate, setIsInvalidDate] = useState(false);
+  const [date, setDate] = useState<string>(today);
+  const [task, setTask] = useState<string>('');
+  const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
+  const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
 
   const warning =
     'Invalid' +

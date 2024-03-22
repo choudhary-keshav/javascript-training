@@ -12,10 +12,10 @@ interface Props {
 }
 
 const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskObj, buttonValues }) => {
-  const [taskValue, setTaskValue] = useState(!taskObj ? '' : taskObj.value);
-  const [taskDate, setTaskDate] = useState(!taskObj ? '' : taskObj.date);
-  const [isInvalidValue, setIsInvalidValue] = useState(false);
-  const [isInvalidDate, setIsInvalidDate] = useState(false);
+  const [taskValue, setTaskValue] = useState<string>(!taskObj ? '' : taskObj.value);
+  const [taskDate, setTaskDate] = useState<string>(!taskObj ? '' : taskObj.date);
+  const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
+  const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
 
   const isEdit = !!taskObj;
   const isConfirm = submitAction && cancelAction && buttonValues;

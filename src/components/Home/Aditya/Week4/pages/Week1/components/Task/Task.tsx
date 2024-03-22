@@ -12,9 +12,9 @@ interface Props {
 }
 
 const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
-  const [taskObj, setTaskObj] = useState(task);
-  const [isEditing, setIsEditing] = useState(false);
-  const [isDeleting, setIsDeleting] = useState(false);
+  const [taskObj, setTaskObj] = useState<TaskDetails>(task);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isDeleting, setIsDeleting] = useState<boolean>(false);
 
   const handleToggle = (): void => {
     const currentTask = { ...taskObj };

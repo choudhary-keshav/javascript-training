@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { black, grey, primary, warning, white } from "../../colorExports";
+import styled from 'styled-components';
+import { black, grey, primary, warning, white } from '../../colorExports';
 
 export const PopupDiv = styled.div`
   position: fixed;
@@ -59,12 +59,12 @@ export const PopupDiv = styled.div`
         cursor: not-allowed;
       }
     }
-    
-    @media (max-width:600px) {
-        width: 200px;
-        #question{
-          font-size: 25px;
-        }
+
+    @media (max-width: 600px) {
+      width: 200px;
+      #question {
+        font-size: 25px;
       }
+    }
   }
 `;

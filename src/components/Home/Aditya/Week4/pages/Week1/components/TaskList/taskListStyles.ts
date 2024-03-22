@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { white } from "../../colorExports";
+import styled from 'styled-components';
+import { white } from '../../colorExports';
 
 export const ListContainer = styled.div`
   text-align: center;
@@ -8,7 +8,7 @@ export const ListContainer = styled.div`
     display: flex;
     justify-content: center;
     h1 {
-      font-family: "Madimi One";
+      font-family: 'Madimi One';
       font-size: 45px;
       color: ${white};
     }

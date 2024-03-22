@@ -14,9 +14,9 @@ const App: React.FC = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
-  const [tasks, setTasks] = useState(getLocalTasks());
-  const [currentFilter, setCurrentFilter] = useState('All Tasks');
-  const [showTasks, setShowTasks] = useState(getLocalTasks());
+  const [tasks, setTasks] = useState<TaskDetails[]>(getLocalTasks());
+  const [currentFilter, setCurrentFilter] = useState<string>('All Tasks');
+  const [showTasks, setShowTasks] = useState<TaskDetails[]>(getLocalTasks());
 
   useEffect(() => {
     if (currentFilter === 'Due Closest' || currentFilter === 'Due Farthest') {

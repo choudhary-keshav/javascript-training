@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SearchUserWrapper } from './searchUserStyles';
 import useSearch from '../../hooks/useSearch';
 import { statusChoices } from '../../utils/constants';
@@ -6,7 +6,11 @@ import { User } from '../../interfaces/interfaces';
 
 const SearchUser: React.FC = () => {
   const [search, setSearch] = useState<string>('');
-  const results: User[] = useSearch(search);
+  const [results, setResults] = useState<User[]>(useSearch(search));
+
+  useEffect(() => {
+    localStorage.setItem('users', JSON.stringify(results));
+  }, [results]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setSearch(e.target.value);
@@ -18,12 +22,13 @@ const SearchUser: React.FC = () => {
     const updatedUsers = users.map((user: User) =>
       user.name === name
         ? {
-            name: name,
+            ...user,
             status: value
           }
         : user
     );
     localStorage.setItem('users', JSON.stringify(updatedUsers));
+    setResults(updatedUsers);
   };
 
   return (
@@ -53,3 +58,7 @@ const SearchUser: React.FC = () => {
 };
 
 export default SearchUser;
+
+//empty users
+//results overflow
+//result update
