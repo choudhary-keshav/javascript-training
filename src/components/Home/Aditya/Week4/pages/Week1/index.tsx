@@ -14,32 +14,31 @@ const App: React.FC = () => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   };
 
-  const [tasks, setTasks] = useState<TaskDetails[]>(getLocalTasks());
-  const [currentFilter, setCurrentFilter] = useState<string>('All Tasks');
-  const [showTasks, setShowTasks] = useState<TaskDetails[]>(getLocalTasks());
+  const [tasks, setTasks] = useState(getLocalTasks());
+  const [currentFilter, setCurrentFilter] = useState('All Tasks');
+  const [showTasks, setShowTasks] = useState(getLocalTasks());
 
   useEffect(() => {
-    switch (currentFilter) {
-      case 'Due Closest':
-      case 'Due Farthest': {
-        const tempTasks = [...tasks];
-        const sortedTasks = tempTasks.sort((task1, task2) => {
-          const date1 = new Date(task1.date);
-          const date2 = new Date(task2.date);
-          return date1.getTime() - date2.getTime();
-        });
-        currentFilter === 'Due Farthest' && sortedTasks.reverse();
-        setShowTasks(sortedTasks);
-        break;
+    if (currentFilter === 'Due Closest' || currentFilter === 'Due Farthest') {
+      const tempTasks = [...tasks];
+      const sortedTasks = tempTasks.sort((task1, task2) => {
+        const date1 = new Date(task1.date);
+        const date2 = new Date(task2.date);
+        return date1.getTime() - date2.getTime();
+      });
+      currentFilter === 'Due Farthest' && sortedTasks.reverse();
+      setShowTasks(sortedTasks);
+    } else {
+      switch (currentFilter) {
+        case 'Not Completed':
+          setShowTasks(tasks.filter((task: TaskDetails) => !task.isCompleted));
+          break;
+        case 'Completed':
+          setShowTasks(tasks.filter((task: TaskDetails) => task.isCompleted));
+          break;
+        default:
+          setShowTasks(tasks);
       }
-      case 'Not Completed':
-        setShowTasks(tasks.filter((task: TaskDetails) => !task.isCompleted));
-        break;
-      case 'Completed':
-        setShowTasks(tasks.filter((task: TaskDetails) => task.isCompleted));
-        break;
-      default:
-        setShowTasks(tasks);
     }
     setLocalTasks(tasks);
   }, [tasks, currentFilter]);
