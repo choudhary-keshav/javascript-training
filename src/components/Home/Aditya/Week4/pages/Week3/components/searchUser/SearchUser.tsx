@@ -27,7 +27,6 @@ const SearchUser: React.FC = () => {
           }
         : user
     );
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
     setResults(updatedUsers);
   };
 
@@ -58,7 +57,3 @@ const SearchUser: React.FC = () => {
 };
 
 export default SearchUser;
-
-//empty users
-//results overflow
-//result update
