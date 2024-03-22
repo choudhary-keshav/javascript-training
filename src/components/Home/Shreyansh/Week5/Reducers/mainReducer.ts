@@ -1,5 +1,5 @@
-import updateCounter from "./updateCounter";
-import { combineReducers } from "redux";
+import updateCounter from './updateCounter';
+import { combineReducers } from 'redux';
 
 const mainReducer = combineReducers({
   updateCounter
