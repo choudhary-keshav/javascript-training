@@ -13,10 +13,13 @@ import KeshavWeek4 from './components/Home/Keshav/Week4';
 import KeshavWeek5 from './components/Home/Keshav/Week5';
 import ShreyanshWeek4 from './components/Home/Shreyansh/Week4';
 import Week2 from './components/Home/Ritika/Week2';
-import RWeek3 from './components/Home/Ritika/Week3';
+import Week3Main from './components/Home/Ritika/Week3';
+import Week4Main from './components/Home/Ritika/Week4';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdityaWeek3 from './components/Home/Aditya/Week3';
+import Week4Home from './components/Home/Ritika/Week4/Movies/Home';
+import MovieDisplay from './components/Home/Ritika/Week4/Movies/SingleMovieDisplay/MovieDisplay';
 
 const App: React.FC = () => {
   return (
@@ -39,7 +42,11 @@ const App: React.FC = () => {
           </Route>
           <Route path='ritika' element={<Ritika />}>
             <Route path='week2' element={<Week2 />}></Route>
-            <Route path='week3' element={<RWeek3 />}></Route>
+            <Route path='week3' element={<Week3Main />}></Route>
+            <Route path='week4' element={<Week4Main />}>
+              <Route path='home' element={<Week4Home />}></Route>
+              <Route path='movie/:id' element={<MovieDisplay />}></Route>
+            </Route>
           </Route>
         </Route>
         <Route path='*' element={<NotFound />}></Route>
