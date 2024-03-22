@@ -6,7 +6,7 @@ const Week4: React.FC = () => {
   return (
     <Week4Wrapper>
       <Link to='home'>Home</Link>
-      <Outlet></Outlet>
+      <Outlet />
     </Week4Wrapper>
   );
 };

@@ -5,7 +5,7 @@ import { MainContainerWrapper } from './styles';
 
 const Ritika: React.FC = () => {
   const [selectedWeek, setSelectedWeek] = useState('');
-  
+
   return (
     <MainContainerWrapper>
       <AppProvider>
