@@ -9,7 +9,6 @@ const Counter: React.FC = () => {
 
   const dispatch = useDispatch();
   return (
-    <>
       <CounterWrapper>
         <div className='mainContainer'>
           <h1>Counter</h1>
@@ -27,7 +26,6 @@ const Counter: React.FC = () => {
           </div>
         </div>
       </CounterWrapper>
-    </>
   );
 };
 
