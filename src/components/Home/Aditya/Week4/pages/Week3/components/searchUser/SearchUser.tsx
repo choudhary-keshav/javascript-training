@@ -40,3 +40,7 @@ const SearchUser: React.FC = () => {
 };
 
 export default SearchUser;
+
+//empty users
+//results overflow
+//result update
