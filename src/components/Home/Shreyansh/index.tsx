@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { ShreyanshWrapper } from './styles';
+import { MainWrapper } from './styles';
 
 const Shreyansh: React.FC = () => {
   const [selectedWeek, setSelectedWeek] = useState('');
   return (
-    <ShreyanshWrapper>
+    <MainWrapper>
       <div className='weekButtonsContainer'>
         <Link to='week4'>
           <button
@@ -25,7 +25,7 @@ const Shreyansh: React.FC = () => {
         </Link>
       </div>
       <Outlet />
-    </ShreyanshWrapper>
+    </MainWrapper>
   );
 };
 

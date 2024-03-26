@@ -12,8 +12,7 @@ export const CounterWrapper = styled.div`
   }
   h1 {
     font-size: 60px;
-    margin-bottom: 0px;
-    margin-top: 50px;
+    margin: 50px 0 0;
   }
   .counterContainer {
     display: flex;

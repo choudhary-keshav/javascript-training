@@ -9,23 +9,21 @@ const Counter: React.FC = () => {
 
   const dispatch = useDispatch();
   return (
-      <CounterWrapper>
-        <div className='mainContainer'>
-          <h1>Counter</h1>
-          <div id='counter'>{updateCounter}</div>
-          <div className='counterContainer'>
-            <button
-              className={`counterButton ${!updateCounter ? 'disabled' : ''}`}
-              onClick={() => dispatch(decreaseCounter())}
-              disabled={!updateCounter}>
-              <span>-</span>
-            </button>
-            <button onClick={() => dispatch(increaseCounter())}>
-              <span>+</span>
-            </button>
-          </div>
-        </div>
-      </CounterWrapper>
+    <CounterWrapper className='mainContainer'>
+      <h1>Counter</h1>
+      <div id='counter'>{updateCounter}</div>
+      <div className='counterContainer'>
+        <button
+          className={`counterButton ${!updateCounter ? 'disabled' : ''}`}
+          onClick={() => dispatch(decreaseCounter())}
+          disabled={!updateCounter}>
+          <span>-</span>
+        </button>
+        <button onClick={() => dispatch(increaseCounter())}>
+          <span>+</span>
+        </button>
+      </div>
+    </CounterWrapper>
   );
 };
 

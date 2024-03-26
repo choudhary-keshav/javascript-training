@@ -17,10 +17,9 @@ const features = [
 
 const Dashboard: React.FC = () => {
   return (
-    <DashboardWrapper>
-      <div className='dashboard-container'>
+    <DashboardWrapper className='dashboardContainer'>
         <nav className='navbar'>
-          <ul className='feature-button'>
+          <ul className='featureButton'>
             {features.map((feature, index) => (
               <li key={index}>
                 <Link to={feature.path}>
@@ -30,14 +29,13 @@ const Dashboard: React.FC = () => {
             ))}
           </ul>
         </nav>
-        <div className='feature-container'>
+        <div className='featureContainer'>
           <Routes>
             {features.map((feature, index) => (
               <Route key={index} path={feature.path} element={feature.component} />
             ))}
           </Routes>
         </div>
-      </div>
     </DashboardWrapper>
   );
 };
