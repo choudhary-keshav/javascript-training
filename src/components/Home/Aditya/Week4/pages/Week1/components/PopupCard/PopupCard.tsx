@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PopupDiv } from './popupCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { getTodayDate, removeWhitespace } from '../../utils/utils';
+import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../utils/warning';
 
 interface Props {
   heading: string;
@@ -26,21 +27,17 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
     setTaskValue(editValue);
   };
 
-  const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setTaskDate(e.target.value);
     const currentDate = Date.parse(getTodayDate());
-    if (currentDate > Date.parse(e.target.value)) {
-      setIsInvalidDate(true);
-    } else {
-      setIsInvalidDate(false);
-    }
+    setIsInvalidDate(currentDate > Date.parse(e.target.value));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (): void => {
     if (isConfirm) submitAction(taskValue, taskDate);
   };
 
-  const handleCancel = () => {
+  const handleCancel = (): void => {
     if (isConfirm) cancelAction();
   };
 
@@ -54,12 +51,12 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
               Task:
             </label>
             <input className='taskDetails' type='text' name='task' value={taskValue} onChange={handleTaskValueChange} />
-            <span className='warning'>{isInvalidValue ? 'Given value is Invalid' : ' '}</span>
+            <span className='warning'>{isInvalidValue ? popupInvalidValueWarning : ' '}</span>
             <label className='taskDetails' htmlFor='date'>
               Date:
             </label>
             <input className='taskDetails' type='date' name='date' value={taskDate} min={getTodayDate()} onChange={handleTaskDateChange} />
-            <span className='warning'>{isInvalidDate ? 'Given date is Invalid' : ' '}</span>
+            <span className='warning'>{isInvalidDate ? popupInvalidDateWarning : ' '}</span>
           </>
         )}
         {isConfirm && (

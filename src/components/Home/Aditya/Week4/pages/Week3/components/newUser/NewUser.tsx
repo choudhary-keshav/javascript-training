@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NewUserWrapper } from './newUserStyles';
 import { removeWhitespace } from '../../utils/functions';
-import { statusChoices } from '../../utils/constants';
+import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
 import { User } from '../../interfaces/interfaces';
 
 const NewUser: React.FC = () => {

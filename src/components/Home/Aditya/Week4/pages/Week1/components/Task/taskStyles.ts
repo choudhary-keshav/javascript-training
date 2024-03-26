@@ -24,6 +24,7 @@ export const TaskDiv = styled.div`
   }
   img {
     cursor: pointer;
+    width: 20px;
     &:hover {
       background: ${grey};
       border-radius: 10px;

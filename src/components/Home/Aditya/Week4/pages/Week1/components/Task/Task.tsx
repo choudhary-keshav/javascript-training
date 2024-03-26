@@ -40,11 +40,11 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
     }
   };
 
-  const toggleIsDeleting = () => {
+  const toggleIsDeleting = (): void => {
     setIsDeleting(!isDeleting);
   };
 
-  const toggleIsEditing = () => {
+  const toggleIsEditing = (): void => {
     setIsEditing(!isEditing);
   };
 
@@ -52,7 +52,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
     <>
       <TaskDiv id={task.id}>
         <input className='taskIsCompleted' type='checkbox' name='isCompleted' onChange={handleToggle} checked={taskObj.isCompleted} />
-        <img src={Pencil} width={'20px'} alt='Edit' onClick={toggleIsEditing} />
+        <img src={Pencil} alt='Edit' onClick={toggleIsEditing} />
         <input
           className={taskObj.isCompleted ? 'taskValue taskCompleted' : 'taskValue'}
           type='text'
@@ -61,7 +61,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
           disabled
         />
         <input className='taskDueDate' type='date' name='taskDueDate' value={taskObj.date} disabled />
-        <img src={TrashCan} width={'20px'} alt='Delete' onClick={toggleIsDeleting} />
+        <img src={TrashCan} alt='Delete' onClick={toggleIsDeleting} />
       </TaskDiv>
       {isEditing && (
         <PopupCard

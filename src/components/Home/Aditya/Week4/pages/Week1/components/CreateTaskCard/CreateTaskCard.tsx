@@ -3,6 +3,7 @@ import { NewTask } from './createTaskCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { removeWhitespace } from '../../utils/utils';
 import { getTodayDate } from '../../utils/utils';
+import { createTaskInvalidWarning } from '../../utils/warning';
 
 interface Props {
   addTask: (newTask: TaskDetails) => void;
@@ -14,13 +15,6 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
   const [task, setTask] = useState<string>('');
   const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
   const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
-
-  const warning =
-    'Invalid' +
-    (isInvalidValue ? ' Task ' : '') +
-    (isInvalidDate ? (isInvalidValue ? 'and' : '') : '') +
-    (isInvalidDate ? ' Date ' : '') +
-    'Value';
 
   const handleSubmitTask = (): void => {
     const currentTask = removeWhitespace(task);
@@ -36,7 +30,6 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
         isCompleted: false,
         date: date
       };
-
       addTask(newTask);
       setTask('');
       setDate(today);
@@ -49,13 +42,13 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
     }
   };
 
-  const handleTaskValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTaskValueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const editValue = removeWhitespace(e.target.value);
-    setIsInvalidValue(!editValue ? true : false);
+    setIsInvalidValue(!editValue);
     setTask(editValue);
   };
 
-  const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setDate(e.target.value);
     const currentDate = Date.parse(getTodayDate());
     setIsInvalidDate(currentDate > Date.parse(e.target.value));
@@ -81,7 +74,7 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
       </div>
       {(isInvalidValue || isInvalidDate) && (
         <div className='warning'>
-          <p>{warning}</p>
+          <p>{createTaskInvalidWarning(isInvalidValue, isInvalidDate)}</p>
         </div>
       )}
     </NewTask>
