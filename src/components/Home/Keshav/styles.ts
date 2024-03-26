@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const KeshavWrapper = styled.div`
+export const Wrapper = styled.div`
   .weekButtonsContainer {
     display: flex;
     justify-content: space-around;
@@ -18,7 +18,7 @@ export const KeshavWrapper = styled.div`
     border-radius: 5px;
     font-size: 16px;
     background-color: #ff5945;
-    color: #fff;
+    color: #ffffff;
     transition: background-color 0.3s ease;
   }
 

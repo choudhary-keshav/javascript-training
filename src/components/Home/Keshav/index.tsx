@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import { KeshavWrapper } from './styles';
+import { Wrapper } from './styles';
 
 const Keshav: React.FC = () => {
   const [selectedWeek, setSelectedWeek] = useState<string>('');
@@ -10,7 +10,7 @@ const Keshav: React.FC = () => {
   };
 
   return (
-    <KeshavWrapper>
+    <Wrapper>
       <div className='weekButtonsContainer'>
         <Link to='week1&2'>
           <button className={`weekButton ${selectedWeek === 'week1' ? 'active' : ''}`} value='week1' onClick={handleWeekClick}>
@@ -33,8 +33,8 @@ const Keshav: React.FC = () => {
           </button>
         </Link>
       </div>
-      <Outlet></Outlet>
-    </KeshavWrapper>
+      <Outlet />
+    </Wrapper>
   );
 };
 
