@@ -3,6 +3,7 @@ import { NewUserWrapper } from './newUserStyles';
 import { removeWhitespace } from '../../utils/functions';
 import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
 import { User } from '../../interfaces/interfaces';
+import { newUserInvalidStatusWarning, newUserInvalidUserWarning } from '../../utils/constants';
 
 const NewUser: React.FC = () => {
   const [users, setUsers] = useState<User[]>(JSON.parse(localStorage.getItem('users') ?? '[]'));
@@ -53,7 +54,7 @@ const NewUser: React.FC = () => {
             Name:
           </label>
           <input className='wide userDetail' type='text' name='name' value={newUser.name} onChange={handleUserChange} />
-          <p className='warning fontMedium'>&nbsp;{!isValidUsername && 'Invalid Username'}</p>
+          <p className='warning fontMedium'>&nbsp;{!isValidUsername && newUserInvalidUserWarning}</p>
           <label htmlFor='status' className='fontMedium'>
             Status:
           </label>
@@ -67,7 +68,7 @@ const NewUser: React.FC = () => {
               </option>
             ))}
           </select>
-          <p className='warning fontMedium'>&nbsp;{!newUser.status && 'Invalid Status'}</p>
+          <p className='warning fontMedium'>&nbsp;{!newUser.status && newUserInvalidStatusWarning}</p>
           <button type='submit' id='submit' disabled={!isValidUsername || !newUser.status}>
             Submit
           </button>
