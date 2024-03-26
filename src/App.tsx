@@ -24,12 +24,12 @@ const App: React.FC = () => {
       <Routes>
         <Route path='/' element={<Home />}>
           <Route path='keshav' element={<Keshav />}>
-            <Route path='week1&2' element={<KeshavWeek1 />}></Route>
-            <Route path='week3' element={<KeshavWeek3 />}></Route>
+            <Route path='week1&2' element={<KeshavWeek1 />}/>
+            <Route path='week3' element={<KeshavWeek3 />}/>
             <Route path='week4' element={<KeshavWeek4 />}>
-              <Route path=':pageId' element={<KeshavWeek4 />}></Route>
+              <Route path=':pageId' element={<KeshavWeek4 />}/>
             </Route>
-            <Route path='week5' element={<KeshavWeek5 />}></Route>
+            <Route path='week5' element={<KeshavWeek5 />}/>
           </Route>
           <Route path='shreyansh' element={<Shreyansh />}>
             <Route path='week4/*' element={<ShreyanshWeek4 />}></Route>
