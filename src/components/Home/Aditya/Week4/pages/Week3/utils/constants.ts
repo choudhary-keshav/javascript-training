@@ -1,1 +1,2 @@
-export const statusChoices = ['Busy', 'Active', 'Do not disturb', 'Idle'];
+export const newUserInvalidUserWarning = 'Invalid Username';
+export const newUserInvalidStatusWarning = 'Invalid Status';
