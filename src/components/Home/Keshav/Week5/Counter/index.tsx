@@ -8,11 +8,11 @@ const Counter: React.FC = () => {
   const count = useSelector((state: RootState) => state.count);
   const dispatch = useDispatch();
 
-  const increment = ():void => {
+  const increment = (): void => {
     dispatch(incrementCounter());
   };
 
-  const decrement = ():void => {
+  const decrement = (): void => {
     dispatch(decrementCounter());
   };
 
