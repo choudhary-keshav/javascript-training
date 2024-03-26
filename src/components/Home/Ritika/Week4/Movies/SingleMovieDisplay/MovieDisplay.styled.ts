@@ -63,14 +63,11 @@ export const SingleMovieDisplayWrapper = styled.div`
     border-radius: 0.5vw;
     transition: all 0.3s linear;
     cursor: pointer;
+    padding: 1.2% 3.6%;
   }
 
   .back-button:hover {
     background-color: #4a5c6c;
     color: #f2f4fc;
-  }
-
-  .back-button {
-    padding: 1.2% 3.6%;
   }
 `;

@@ -23,7 +23,7 @@ const Movies: React.FC = () => {
               </NavLink>
             );
           })}
-          <Outlet></Outlet>
+          <Outlet />
         </div>
       </section>
     </MovieWrapper>
