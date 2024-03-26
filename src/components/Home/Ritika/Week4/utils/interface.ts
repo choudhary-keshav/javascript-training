@@ -9,6 +9,7 @@ export interface Movie {
   Released?: string;
   Country?: string;
 }
+
 export interface AppContextValue {
   movie: Movie[];
 }

@@ -26,13 +26,13 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
     getMovies(API_URL);
   }, []);
 
-  const contextValue: AppContextValue = useMemo(
+  const contextValueToPass: AppContextValue = useMemo(
     () => ({
       movie
     }),
     [movie]
   );
 
-  return <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>;
+  return <AppContext.Provider value={contextValueToPass}>{children}</AppContext.Provider>;
 };
 export { AppContext, AppProvider };
