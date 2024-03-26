@@ -24,7 +24,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
   };
 
   const handleDelete = (): void => {
-    toggleIsDeleting();
+    setIsDeleting(!isEditing);
     deleteTask(task.id);
   };
 
@@ -35,24 +35,16 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
       updatedTask.date = newDate;
       updatedTask.isCompleted = newValue === taskObj.value && taskObj.isCompleted;
       updateTask(updatedTask);
-      toggleIsEditing();
+      setIsEditing(!isEditing);
       setTaskObj(updatedTask);
     }
-  };
-
-  const toggleIsDeleting = (): void => {
-    setIsDeleting(!isDeleting);
-  };
-
-  const toggleIsEditing = (): void => {
-    setIsEditing(!isEditing);
   };
 
   return (
     <>
       <TaskDiv id={task.id}>
         <input className='taskIsCompleted' type='checkbox' name='isCompleted' onChange={handleToggle} checked={taskObj.isCompleted} />
-        <img src={Pencil} alt='Edit' onClick={toggleIsEditing} />
+        <img src={Pencil} alt='Edit' onClick={() => setIsDeleting(!isDeleting)} />
         <input
           className={taskObj.isCompleted ? 'taskValue taskCompleted' : 'taskValue'}
           type='text'
@@ -61,13 +53,13 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
           disabled
         />
         <input className='taskDueDate' type='date' name='taskDueDate' value={taskObj.date} disabled />
-        <img src={TrashCan} alt='Delete' onClick={toggleIsDeleting} />
+        <img src={TrashCan} alt='Delete' onClick={() => setIsEditing(!isEditing)} />
       </TaskDiv>
       {isEditing && (
         <PopupCard
           heading='Edit Task:'
           submitAction={handleEdit}
-          cancelAction={toggleIsEditing}
+          cancelAction={() => setIsEditing(!isEditing)}
           taskObj={taskObj}
           buttonValues={{ submit: 'Submit', cancel: 'Cancel' }}
         />
@@ -76,7 +68,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
         <PopupCard
           heading='Do you really want to delete this task?'
           submitAction={handleDelete}
-          cancelAction={toggleIsDeleting}
+          cancelAction={() => setIsDeleting(!isDeleting)}
           buttonValues={{ submit: 'Delete', cancel: 'Cancel' }}
         />
       )}

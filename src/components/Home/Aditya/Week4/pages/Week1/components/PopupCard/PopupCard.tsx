@@ -34,11 +34,15 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
   };
 
   const handleSubmit = (): void => {
-    if (isConfirm) submitAction(taskValue, taskDate);
+    if (isConfirm) {
+      submitAction(taskValue, taskDate);
+    }
   };
 
   const handleCancel = (): void => {
-    if (isConfirm) cancelAction();
+    if (isConfirm) {
+      cancelAction();
+    }
   };
 
   return (

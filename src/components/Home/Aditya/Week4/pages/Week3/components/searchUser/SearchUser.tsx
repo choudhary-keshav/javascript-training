@@ -10,11 +10,6 @@ const SearchUser: React.FC = () => {
   console.log('hook: ' + useSearch(search));
   console.log('state: ' + results);
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    console.log(e.target.value);
-    setSearch(e.target.value);
-  };
-
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     const { name, value } = e.target;
     const users = JSON.parse(localStorage.getItem('users') ?? '[]');
@@ -37,7 +32,13 @@ const SearchUser: React.FC = () => {
         <label htmlFor='search' className='fontMedium'>
           Search:
         </label>
-        <input type='text' className='userDetail' name='search' value={search} onChange={handleSearch} />
+        <input
+          type='text'
+          className='userDetail'
+          name='search'
+          value={search}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
+        />
         <p>{!results.length ? 'No results' : 'Results:'}</p>
         {results.map((user) => (
           <div className='results' key={user.name}>
