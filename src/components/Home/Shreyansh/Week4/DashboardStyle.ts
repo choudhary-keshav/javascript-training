@@ -1,11 +1,11 @@
 import { styled } from 'styled-components';
 
 export const DashboardWrapper = styled.div`
-    max-width: 800px;
-    margin: 30px auto 0;
-    padding: 20px;
-    background-color: #808080;
-    border-radius: 10px;
+  max-width: 800px;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: #808080;
+  border-radius: 10px;
   .navbar {
     background-color: #000080;
     padding: 10px;
