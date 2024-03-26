@@ -17,26 +17,24 @@ const features = [
 
 const Dashboard: React.FC = () => {
   return (
-    <DashboardWrapper>
-      <div className='dashboard-container'>
-        <nav className='navbar'>
-          <ul className='feature-button'>
-            {features.map((feature, index) => (
-              <li key={index}>
-                <Link to={feature.path}>
-                  <button>{feature.name}</button>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div className='feature-container'>
-          <Routes>
-            {features.map((feature, index) => (
-              <Route key={index} path={feature.path} element={feature.component} />
-            ))}
-          </Routes>
-        </div>
+    <DashboardWrapper className='dashboardContainer'>
+      <nav className='navbar'>
+        <ul className='featureButton'>
+          {features.map((feature, index) => (
+            <li key={index}>
+              <Link to={feature.path}>
+                <button>{feature.name}</button>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <div className='featureContainer'>
+        <Routes>
+          {features.map((feature, index) => (
+            <Route key={index} path={feature.path} element={feature.component} />
+          ))}
+        </Routes>
       </div>
     </DashboardWrapper>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import Dashboard from './Dashboard';
 
-const Week4:React.FC = () => {
+const Week4: React.FC = () => {
   return <Dashboard />;
 };
 
