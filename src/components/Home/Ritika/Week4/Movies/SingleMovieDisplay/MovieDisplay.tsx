@@ -6,7 +6,7 @@ import { SingleMovieDisplayWrapper } from './MovieDisplay.styled';
 const MovieDisplay: React.FC = () => {
   const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [movie, setMovie] = useState<Movie | null>(null);
 
   const navigate = useNavigate();
@@ -16,8 +16,8 @@ const MovieDisplay: React.FC = () => {
   };
   const getMovies = async (url: string) => {
     try {
-      const res = await fetch(url);
-      const data = await res.json();
+      const response = await fetch(url);
+      const data = await response.json();
       if (data.Response === 'True') {
         setIsLoading(false);
         setMovie(data);

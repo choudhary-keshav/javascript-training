@@ -12,8 +12,8 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
 
   const getMovies = async (url: string) => {
     try {
-      const res = await fetch(url);
-      const data = await res.json();
+      const response = await fetch(url);
+      const data = await response.json();
       if (data.Response === 'True') {
         setMovie(data.Search);
       }

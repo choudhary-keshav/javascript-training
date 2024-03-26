@@ -30,7 +30,7 @@ export const MovieWrapper = styled.div`
       max-width: 78%;
     }
     .grid-4-col {
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 

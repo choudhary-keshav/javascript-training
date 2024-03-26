@@ -30,9 +30,7 @@ export const SingleMovieDisplayWrapper = styled.div`
     width: 100%;
     height: auto;
     margin: 0;
-    border-radius: 0;
-    border-top-left-radius: 2vw;
-    border-bottom-left-radius: 2vw;
+    border-radius: 0 2vw 2vw 0;
     max-height: 50vh;
   }
 
