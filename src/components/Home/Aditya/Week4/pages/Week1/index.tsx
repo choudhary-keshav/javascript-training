@@ -19,26 +19,27 @@ const App: React.FC = () => {
   const [showTasks, setShowTasks] = useState<TaskDetails[]>(getLocalTasks());
 
   useEffect(() => {
-    if (currentFilter === 'Due Closest' || currentFilter === 'Due Farthest') {
-      const tempTasks = [...tasks];
-      const sortedTasks = tempTasks.sort((task1, task2) => {
-        const date1 = new Date(task1.date);
-        const date2 = new Date(task2.date);
-        return date1.getTime() - date2.getTime();
-      });
-      currentFilter === 'Due Farthest' && sortedTasks.reverse();
-      setShowTasks(sortedTasks);
-    } else {
-      switch (currentFilter) {
-        case 'Not Completed':
-          setShowTasks(tasks.filter((task: TaskDetails) => !task.isCompleted));
-          break;
-        case 'Completed':
-          setShowTasks(tasks.filter((task: TaskDetails) => task.isCompleted));
-          break;
-        default:
-          setShowTasks(tasks);
+    switch (currentFilter) {
+      case 'Due Closest':
+      case 'Due Farthest': {
+        const tempTasks = [...tasks];
+        const sortedTasks = tempTasks.sort((task1, task2) => {
+          const date1 = new Date(task1.date);
+          const date2 = new Date(task2.date);
+          return date1.getTime() - date2.getTime();
+        });
+        currentFilter === 'Due Farthest' && sortedTasks.reverse();
+        setShowTasks(sortedTasks);
+        break;
       }
+      case 'Not Completed':
+        setShowTasks(tasks.filter((task: TaskDetails) => !task.isCompleted));
+        break;
+      case 'Completed':
+        setShowTasks(tasks.filter((task: TaskDetails) => task.isCompleted));
+        break;
+      default:
+        setShowTasks(tasks);
     }
     setLocalTasks(tasks);
   }, [tasks, currentFilter]);
