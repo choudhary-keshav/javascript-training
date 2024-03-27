@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import { AppContextValue } from '../utils/interface';
+import { AppContextValue, Movie } from '../utils/interface';
 import { API_URL } from '../utils/api';
 
 interface AppProviderProps {
@@ -8,7 +8,7 @@ interface AppProviderProps {
 
 const AppContext = React.createContext({});
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState<Movie[]>([]);
 
   const getMovies = async (url: string) => {
     try {
