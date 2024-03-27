@@ -4,13 +4,15 @@ import { getTodayDate, removeWhitespace } from '../../utils/functions';
 import { Profile } from '../../interfaces/interfaces';
 
 const Form: React.FC = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [profile, setProfile] = useState<Profile>({
+  const initialProfileState: Profile = {
     name: '',
     dob: '',
     phone: '',
     email: ''
-  });
+  };
+
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [profile, setProfile] = useState<Profile>(initialProfileState);
 
   useEffect(() => {
     if (inputRef.current) {
@@ -32,12 +34,7 @@ const Form: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
-    setProfile({
-      name: '',
-      dob: '',
-      phone: '',
-      email: ''
-    });
+    setProfile(initialProfileState);
     alert('Your submission was successful!');
   };
 

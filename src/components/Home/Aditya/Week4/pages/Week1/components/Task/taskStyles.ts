@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { black, grey, primary, secondary, white } from '../../colorExports';
 
-export const TaskDiv = styled.div`
+export const TaskWrapper = styled.div`
   display: flex;
   width: 60%;
   margin: 5px auto;

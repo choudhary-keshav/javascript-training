@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { white } from '../../colorExports';
 
-export const ListContainer = styled.div`
+export const TaskListWrapper = styled.div`
   text-align: center;
   margin-bottom: 100px;
   #heading {

@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SearchUserWrapper } from './searchUserStyles';
-import useSearch from '../../hooks/useSearch';
 import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
 import { User } from '../../interfaces/interfaces';
+import searchLocalStorage from './search';
 
 const SearchUser: React.FC = () => {
   const [search, setSearch] = useState<string>('');
-  const [results, setResults] = useState<User[]>(useSearch(search));
-  console.log('hook: ' + useSearch(search));
-  console.log('state: ' + results);
+  const [results, setResults] = useState<User[]>([]);
+
+  useEffect(() => {
+    setResults(searchLocalStorage(search));
+  }, [search]);
 
   const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     const { name, value } = e.target;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PopupDiv } from './popupCardStyles';
+import { PopupCardWrapper } from './popupCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { getTodayDate, removeWhitespace } from '../../utils/utils';
 import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../utils/warning';
@@ -46,7 +46,7 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
   };
 
   return (
-    <PopupDiv>
+    <PopupCardWrapper>
       <div id='mainDiv'>
         <h1 id='question'>{heading}</h1>
         {isEdit && (
@@ -72,7 +72,7 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
           </div>
         )}
       </div>
-    </PopupDiv>
+    </PopupCardWrapper>
   );
 };
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { grey, primary, secondary, tertiary, warning, white } from '../../colorExports';
 
-export const NewTask = styled.div`
+export const CreateTaskCardWrapper = styled.div`
   position: fixed;
   top: 87%;
   width: 100%;

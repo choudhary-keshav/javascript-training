@@ -1,7 +1,7 @@
 import React from 'react';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import Task from '../Task/Task';
-import { ListContainer } from './taskListStyles';
+import { TaskListWrapper } from './taskListStyles';
 import Sun from '../../assets/icons/sun.svg';
 
 interface Props {
@@ -16,7 +16,7 @@ const TaskList: React.FC<Props> = ({ tasks, showTasks, handleFilterChoice, delet
   const filterChoices: string[] = ['All Tasks', 'Not Completed', 'Completed', 'Due Closest', 'Due Farthest'];
 
   return (
-    <ListContainer id='listContainer'>
+    <TaskListWrapper id='listContainer'>
       <div id='heading'>
         <h1>ToDo App</h1>
         <img src={Sun} alt='Sun' width={'100px'} />
@@ -35,7 +35,7 @@ const TaskList: React.FC<Props> = ({ tasks, showTasks, handleFilterChoice, delet
       {showTasks.map((object: TaskDetails) => (
         <Task key={object.id} deleteTask={deleteTask} updateTask={updateTask} task={object} />
       ))}
-    </ListContainer>
+    </TaskListWrapper>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
-import { TaskDiv } from './taskStyles';
+import { TaskWrapper } from './taskStyles';
 import TrashCan from '../../assets/icons/trash-1-open-svgrepo-com.svg';
 import Pencil from '../../assets/icons/pencil-edit-svgrepo-com.svg';
 import PopupCard from '../PopupCard/PopupCard';
@@ -42,7 +42,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
 
   return (
     <>
-      <TaskDiv id={task.id}>
+      <TaskWrapper id={task.id}>
         <input className='taskIsCompleted' type='checkbox' name='isCompleted' onChange={handleToggle} checked={taskObj.isCompleted} />
         <img src={Pencil} alt='Edit' onClick={() => setIsDeleting(!isDeleting)} />
         <input
@@ -54,7 +54,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
         />
         <input className='taskDueDate' type='date' name='taskDueDate' value={taskObj.date} disabled />
         <img src={TrashCan} alt='Delete' onClick={() => setIsEditing(!isEditing)} />
-      </TaskDiv>
+      </TaskWrapper>
       {isEditing && (
         <PopupCard
           heading='Edit Task:'

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { black, grey, primary, warning, white } from '../../colorExports';
 
-export const PopupDiv = styled.div`
+export const PopupCardWrapper = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;

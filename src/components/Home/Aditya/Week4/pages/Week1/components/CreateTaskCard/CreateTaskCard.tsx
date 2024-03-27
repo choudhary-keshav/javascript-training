@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NewTask } from './createTaskCardStyles';
+import { CreateTaskCardWrapper } from './createTaskCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { removeWhitespace } from '../../utils/utils';
 import { getTodayDate } from '../../utils/utils';
@@ -55,7 +55,7 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
   };
 
   return (
-    <NewTask id='newTaskDiv'>
+    <CreateTaskCardWrapper id='newTaskDiv'>
       <div className='flex'>
         <div id='taskWrapper'>
           <input
@@ -77,7 +77,7 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
           <p>{createTaskInvalidWarning(isInvalidValue, isInvalidDate)}</p>
         </div>
       )}
-    </NewTask>
+    </CreateTaskCardWrapper>
   );
 };
 
