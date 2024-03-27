@@ -22,6 +22,11 @@ const Aditya: React.FC = () => {
             Week-4
           </button>
         </Link>
+        <Link to='week5'>
+          <button className={`weekButton ${selectedWeek === 'week5' ? 'active' : ''}`} value='week5' onClick={handleWeekClick}>
+            Week-5
+          </button>
+        </Link>
       </div>
       <Outlet />
     </MainWrapper>
