@@ -1,1 +1,2 @@
 For accessing week-4 assignment of Keshav, you have to save a file in root folder named ".env.local" and place your secret API key as REACT_APP_WEATHER_API_KEY={YOUR_API_KEY}
+To access Ritika's Week 4 assignment, create a file named ".env" in the root folder and add your API key like this: REACT_APP_API_KEY={YOUR_API_KEY}
