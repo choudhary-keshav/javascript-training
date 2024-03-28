@@ -44,7 +44,6 @@ export const CreateTaskCardWrapper = styled.div`
       width: 50%;
     }
   }
-
   #newTaskDate {
     padding: 4px;
     border: none;

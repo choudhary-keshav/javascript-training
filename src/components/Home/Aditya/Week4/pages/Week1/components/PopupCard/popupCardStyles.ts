@@ -59,7 +59,6 @@ export const PopupCardWrapper = styled.div`
         cursor: not-allowed;
       }
     }
-
     @media (max-width: 600px) {
       width: 200px;
       #question {
