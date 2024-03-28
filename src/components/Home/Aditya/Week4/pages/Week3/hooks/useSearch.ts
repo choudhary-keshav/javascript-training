@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { removeWhitespace } from '../utils/functions';
+import { removeWhitespace } from '../../../utils/functions';
 import { User, searchResult } from '../interfaces/interfaces';
 
 const useSearch = (): searchResult => {

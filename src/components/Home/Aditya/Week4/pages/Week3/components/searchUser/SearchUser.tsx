@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchUserWrapper } from './searchUserStyles';
-import statusChoices from '../../../../Keshav/Week3/utils/statusOptions';
+import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
 import useSearch from '../../hooks/useSearch';
 import { searchResult } from '../../interfaces/interfaces';
 
