@@ -15,33 +15,25 @@ export const NewUserWrapper = styled.div`
     background: #32cd32;
     font-weight: bold;
     border-radius: 7px;
-    border-color: #000000;
-    color: #000000;
+    border-color: #000;
+    color: #000;
     &:hover {
-      background: #ffffff;
+      background: #fff;
       color: #32cd32;
       border-color: #32cd32;
     }
     &:active {
       background-color: #008000;
-      color: #ffffff;
+      color: #fff;
       border-color: transparent;
     }
-    &:disabled {
+    &:disabled,
+    &:disabled:active,
+    &:disabled:hover {
       background-color: #808080;
-      color: #ffffff;
+      color: #fff;
       border-color: #808080;
       cursor: not-allowed;
-      &:active {
-        background-color: #808080;
-        color: #ffffff;
-        border-color: #808080;
-      }
-      &:hover {
-        background-color: #808080;
-        color: #ffffff;
-        border-color: #808080;
-      }
     }
   }
   p {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FormWrapper } from './formStyles';
-import { getTodayDate, removeWhitespace } from '../../utils/functions';
+import { getTodayDate, removeWhitespace } from '../../../../utils/functions';
 import { Profile } from '../../interfaces/interfaces';
 
 const Form: React.FC = () => {

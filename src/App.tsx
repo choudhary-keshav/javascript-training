@@ -42,7 +42,7 @@ const App: React.FC = () => {
           </Route>
           <Route path='/aditya' element={<Aditya />}>
             <Route path='/aditya/week3' element={<AdityaWeek3 />} />
-            <Route path='/aditya/week4' element={<AdityaWeek4 />}>
+            <Route path='/aditya/week4/*' element={<AdityaWeek4 />}>
               <Route path='week1&2' element={<AdityaWeek4Week1 />} />
               <Route path='week3' element={<AdityaWeek4Week3 />} />
             </Route>

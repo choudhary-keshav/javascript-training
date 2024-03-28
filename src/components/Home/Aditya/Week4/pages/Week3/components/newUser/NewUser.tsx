@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NewUserWrapper } from './newUserStyles';
-import { removeWhitespace } from '../../utils/functions';
+import { removeWhitespace } from '../../../../utils/functions';
 import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
 import { User } from '../../interfaces/interfaces';
-import { newUserInvalidStatusWarning, newUserInvalidUserWarning } from '../../utils/constants';
+import { newUserInvalidStatusWarning, newUserInvalidUserWarning } from '../../../../utils/constants';
 
 const NewUser: React.FC = () => {
   const [users, setUsers] = useState<User[]>(JSON.parse(localStorage.getItem('users') ?? '[]'));

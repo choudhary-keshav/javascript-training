@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { PopupCardWrapper } from './popupCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
-import { getTodayDate, removeWhitespace } from '../../utils/utils';
-import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../utils/warning';
+import { getTodayDate, removeWhitespace } from '../../../../utils/functions';
+import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../../../utils/warning';
 
 interface Props {
   heading: string;
@@ -18,7 +18,6 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
   const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
   const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
 
-  const isEdit = !!taskObj;
   const isConfirm = submitAction && cancelAction && buttonValues;
 
   const handleTaskValueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -49,7 +48,7 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
     <PopupCardWrapper>
       <div id='mainDiv'>
         <h1 id='question'>{heading}</h1>
-        {isEdit && (
+        {!!taskObj && (
           <>
             <label className='taskDetails' htmlFor='task'>
               Task:

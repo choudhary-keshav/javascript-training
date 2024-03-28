@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { CreateTaskCardWrapper } from './createTaskCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
-import { removeWhitespace } from '../../utils/utils';
-import { getTodayDate } from '../../utils/utils';
-import { createTaskInvalidWarning } from '../../utils/warning';
+import { removeWhitespace, getTodayDate } from '../../../../utils/functions';
+import { createTaskInvalidWarning } from '../../../../utils/warning';
 
 interface Props {
   addTask: (newTask: TaskDetails) => void;
