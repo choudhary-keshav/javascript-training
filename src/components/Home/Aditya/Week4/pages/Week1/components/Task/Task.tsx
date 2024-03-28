@@ -44,7 +44,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
     <>
       <TaskWrapper id={task.id}>
         <input className='taskIsCompleted' type='checkbox' name='isCompleted' onChange={handleToggle} checked={taskObj.isCompleted} />
-        <img src={Pencil} alt='Edit' onClick={() => setIsDeleting(!isDeleting)} />
+        <img src={Pencil} alt='Edit' onClick={() => setIsEditing(!isEditing)} />
         <input
           className={taskObj.isCompleted ? 'taskValue taskCompleted' : 'taskValue'}
           type='text'
@@ -53,7 +53,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
           disabled
         />
         <input className='taskDueDate' type='date' name='taskDueDate' value={taskObj.date} disabled />
-        <img src={TrashCan} alt='Delete' onClick={() => setIsEditing(!isEditing)} />
+        <img src={TrashCan} alt='Delete' onClick={() => setIsDeleting(!isDeleting)} />
       </TaskWrapper>
       {isEditing && (
         <PopupCard

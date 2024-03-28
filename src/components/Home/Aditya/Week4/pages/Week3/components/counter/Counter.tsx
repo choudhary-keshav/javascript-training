@@ -8,11 +8,6 @@ const Counter: React.FC = () => {
   };
 
   const changeOptions: number[] = [-1, 1, -2, 2, -5, 5, -10, 10];
-  let currentOption: number = 0;
-
-  const findDisabled = (): boolean => {
-    return count + changeOptions[currentOption++] < 0;
-  };
 
   return (
     <CounterWrapper>
@@ -20,7 +15,7 @@ const Counter: React.FC = () => {
       <div className='gridWrapper'>
         <div className='buttonDiv'>
           {changeOptions.map((value) => (
-            <button key={value} className='counterButton items' onClick={handleChangeCounter} disabled={findDisabled()}>
+            <button key={value} className='counterButton items' onClick={handleChangeCounter} disabled={count + value < 0}>
               {value}
             </button>
           ))}
