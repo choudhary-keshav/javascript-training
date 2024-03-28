@@ -1,31 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { SearchUserWrapper } from './searchUserStyles';
 import statusChoices from '../../../../../../Keshav/Week3/utils/statusOptions';
-import { User } from '../../interfaces/interfaces';
-import searchLocalStorage from './search';
+import useSearch from '../../hooks/useSearch';
+import { searchResult } from '../../interfaces/interfaces';
 
 const SearchUser: React.FC = () => {
-  const [search, setSearch] = useState<string>('');
-  const [results, setResults] = useState<User[]>([]);
-
-  useEffect(() => {
-    setResults(searchLocalStorage(search));
-  }, [search]);
-
-  const handleStatusChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const { name, value } = e.target;
-    const users = JSON.parse(localStorage.getItem('users') ?? '[]');
-    const updatedUsers = users.map((user: User) =>
-      user.name === name
-        ? {
-            ...user,
-            status: value
-          }
-        : user
-    );
-    setResults(updatedUsers);
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
-  };
+  const { search, setSearch, data, handleStatusChange }: searchResult = useSearch();
 
   return (
     <SearchUserWrapper>
@@ -41,8 +21,8 @@ const SearchUser: React.FC = () => {
           value={search}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value)}
         />
-        <p>{!results.length ? 'No results' : 'Results:'}</p>
-        {results.map((user) => (
+        <p>{!data.length ? 'No results' : 'Results:'}</p>
+        {data.map((user) => (
           <div className='results' key={user.name}>
             <span>{user.name}</span>
             <select id='userStatus' className='status' name={user.name} value={user.status} onChange={handleStatusChange}>
