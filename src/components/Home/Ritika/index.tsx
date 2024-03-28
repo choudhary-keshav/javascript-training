@@ -6,7 +6,8 @@ import { MainContainerWrapper } from './styles';
 const weeks = [
   { id: 'week2', label: 'Week-2' },
   { id: 'week3', label: 'Week-3' },
-  { id: 'week4', label: 'Week-4' }
+  { id: 'week4', label: 'Week-4' },
+  { id: 'week5', label: 'Week-5' }
 ];
 
 const Ritika: React.FC = () => {

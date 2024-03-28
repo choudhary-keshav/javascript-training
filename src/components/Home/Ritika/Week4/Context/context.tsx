@@ -14,7 +14,6 @@ const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       const movies = await getMovies(API_URL);
-      console.log(movies.Search);
       setMovie(movies.Search);
     };
     fetchData();
