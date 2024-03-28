@@ -22,7 +22,6 @@ import AdityaWeek4Week1 from './components/Home/Aditya/Week4/pages/Week1';
 import AdityaWeek4Week3 from './components/Home/Aditya/Week4/pages/Week3';
 import AdityaWeek3 from './components/Home/Aditya/Week3';
 import AdityaWeek4 from './components/Home/Aditya/Week4';
-import AdityaWeek5 from './components/Home/Aditya/Week5';
 import Week4Home from './components/Home/Ritika/Week4/Movies/Home';
 import MovieDisplay from './components/Home/Ritika/Week4/Movies/SingleMovieDisplay/MovieDisplay';
 
@@ -49,7 +48,6 @@ const App: React.FC = () => {
               <Route path='week1&2' element={<AdityaWeek4Week1 />} />
               <Route path='week3' element={<AdityaWeek4Week3 />} />
             </Route>
-            <Route path='/aditya/week5' element={<AdityaWeek5 />} />
           </Route>
           <Route path='ritika' element={<Ritika />}>
             <Route path='week2' element={<Week2 />}></Route>
