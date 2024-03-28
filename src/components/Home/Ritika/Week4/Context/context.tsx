@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { AppContextValue, Movie } from '../utils/interface';
 import { API_URL } from '../utils/api';
+import { getMovies } from '../utils/common';
 
 interface AppProviderProps {
   children: React.ReactNode;
@@ -10,20 +11,13 @@ const AppContext = React.createContext({});
 const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
   const [movie, setMovie] = useState<Movie[]>([]);
 
-  const getMovies = async (url: string) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.Response === 'True') {
-        setMovie(data.Search);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    getMovies(API_URL);
+    const fetchData = async () => {
+      const movies = await getMovies(API_URL);
+      console.log(movies.Search);
+      setMovie(movies.Search);
+    };
+    fetchData();
   }, []);
 
   const contextValueToPass: AppContextValue = useMemo(

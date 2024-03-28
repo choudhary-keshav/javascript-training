@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useParams } from 'react-router-dom';
 import { Movie } from '../../utils/interface';
 import { SingleMovieDisplayWrapper } from './MovieDisplay.styled';
+import { getMovies } from '../../utils/common';
 
 const MovieDisplay: React.FC = () => {
   const API_URL = `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}`;
@@ -14,21 +15,14 @@ const MovieDisplay: React.FC = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
-  const getMovies = async (url: string) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      if (data.Response === 'True') {
-        setIsLoading(false);
-        setMovie(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   useEffect(() => {
-    getMovies(`${API_URL}&i=${id}`);
+    const fetchData = async () => {
+      const movies = await getMovies(`${API_URL}&i=${id}`);
+      setIsLoading(false);
+      setMovie(movies);
+    };
+    fetchData();
   }, [id]);
 
   if (isLoading) {
