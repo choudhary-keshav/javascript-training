@@ -6,7 +6,7 @@ import Counter from './Counter/Counter';
 const Week5Main = () => {
   return (
     <Provider store={store}>
-      <div><Counter/></div>
+      <Counter />
     </Provider>
   );
 };

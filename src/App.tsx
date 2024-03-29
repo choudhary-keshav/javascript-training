@@ -21,7 +21,6 @@ import AdityaWeek3 from './components/Home/Aditya/Week3';
 import Week4Home from './components/Home/Ritika/Week4/Movies/Home';
 import MovieDisplay from './components/Home/Ritika/Week4/Movies/SingleMovieDisplay/MovieDisplay';
 import Week5Main from './components/Home/Ritika/Week5';
-import Login from './components/Home/Ritika/LoginUser/Login';
 
 const App: React.FC = () => {
   return (
@@ -43,7 +42,6 @@ const App: React.FC = () => {
             <Route path='/aditya/week3' element={<AdityaWeek3 />}></Route>
           </Route>
           <Route path='ritika' element={<Ritika />}>
-            <Route path='login' element={<Login />} />
             <Route path='week2' element={<Week2 />} />
             <Route path='week3' element={<Week3Main />}></Route>
             <Route path='week4' element={<Week4Main />}>
