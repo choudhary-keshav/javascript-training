@@ -34,8 +34,8 @@ export const CounterWrapper = styled.div`
     outline: none;
     width: 150px;
     box-shadow:
-      #32325d 0px 50px 100px -20px,
-      #000000 0px 30px 60px -30px;
+      #32325d10 0px 50px 100px -20px,
+      #00000010 0px 30px 60px -30px;
   }
   .incrementByValueButton {
     background-color: #2196f3;

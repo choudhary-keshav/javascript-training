@@ -8,16 +8,14 @@ export const LoginWrapper = styled.div`
   width: 30%;
   margin: auto;
   margin-top: 10%;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: #00000010 0px 5px 15px;
   border-radius: 30px;
-
   .labelField {
     padding: 10px;
     margin: 8px;
     font-size: 25px;
     font-weight: 800;
   }
-
   .inputField {
     padding: 10px;
     margin: 8px;
@@ -26,7 +24,6 @@ export const LoginWrapper = styled.div`
     border: none;
     font-size: 16px;
   }
-
   .submitButton {
     width: 20%;
     margin: 22px auto auto auto;
@@ -54,7 +51,6 @@ export const LoginWrapper = styled.div`
       width: 80%;
     }
   }
-
   @media screen and (max-width: 400px) {
     .submitButton {
       width: 80%;
