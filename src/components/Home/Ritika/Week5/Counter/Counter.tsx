@@ -21,16 +21,16 @@ const Counter: React.FC = () => {
 
   return (
     <CounterWrapper>
-      <button className='counterButton' onClick={() => dispatch(increment())}>
-        +
-      </button>
-      <div className='counterValue'>{value}</div>
       <button className='counterButton' onClick={() => dispatch(decrement())}>
         -
       </button>
+      <div className='counterValue'>{value}</div>
+      <button className='counterButton' onClick={() => dispatch(increment())}>
+        +
+      </button>
       <input className='incrementByValueInput' type='text' value={inputValue} onChange={handleInputChange}></input>
       <button className='incrementByValueButton' onClick={handleIncrement} disabled={!inputValue}>
-        Increment By
+        ADD
       </button>
       <button className='resetButton' onClick={() => dispatch(reset())}>
         Reset

@@ -23,3 +23,14 @@ export const validateAlreadyExistUser = (employees: Employee[], name: string) =>
   }
   return true;
 };
+export const validateUser = (userName: string, userPassword: string) => {
+  if (!userName.trim() || !userPassword.trim()) {
+    toast.error('Please enter the details');
+    return false;
+  }
+  return true;
+};
+export const validatePassword = (password: string) => {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return passwordRegex.test(password);
+};
