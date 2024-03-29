@@ -6,7 +6,6 @@ export const CounterWrapper = styled.div`
   justify-content: center;
   background-color: #f5f5f5;
   height: 100vh;
-
   .counterButton {
     background-color: #4caf50;
     color: #ffffff;
@@ -18,16 +17,13 @@ export const CounterWrapper = styled.div`
     transition: background-color 0.3s ease-in-out;
     margin: 2%;
   }
-
   .counterButton:hover {
     background-color: #388e3c;
   }
-
   .counterValue {
     font-size: 2vw;
     font-weight: bold;
   }
-
   .incrementByValueInput {
     padding: 1%;
     border: 1px solid #cccccc;
@@ -38,10 +34,9 @@ export const CounterWrapper = styled.div`
     outline: none;
     width: 150px;
     box-shadow:
-      rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+      #32325d 0px 50px 100px -20px,
+      #000000 0px 30px 60px -30px;
   }
-
   .incrementByValueButton {
     background-color: #2196f3;
     color: #ffffff;
@@ -52,17 +47,14 @@ export const CounterWrapper = styled.div`
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
   }
-
   .incrementByValueButton:hover {
     background-color: #1976d2;
   }
-
   .incrementByValueButton:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
     opacity: 0.5;
   }
-
   .resetButton {
     background-color: #f44336;
     color: #ffffff;
@@ -74,7 +66,6 @@ export const CounterWrapper = styled.div`
     transition: background-color 0.3s ease-in-out;
     margin: 1%;
   }
-
   .resetButton:hover {
     background-color: #d32f2f;
   }
@@ -82,13 +73,11 @@ export const CounterWrapper = styled.div`
     flex-direction: column;
     text-align: center;
     padding: 20px;
-
     .counterButton,
     .incrementByValueButton,
     .resetButton {
       margin: 10px 0;
     }
-
     .counterValue,
     .incrementByValueInput {
       margin: 10px 0;

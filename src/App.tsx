@@ -45,10 +45,10 @@ const App: React.FC = () => {
           <Route path='/login' element={<Login />} />
           <Route path='ritika' element={<PrivateRoutes />}>
             <Route path='week2' element={<Week2 />} />
-            <Route path='week3' element={<Week3Main />}></Route>
+            <Route path='week3' element={<Week3Main />}/>
             <Route path='week4' element={<Week4Main />}>
-              <Route path='home' element={<Week4Home />}></Route>
-              <Route path='movie/:id' element={<MovieDisplay />}></Route>
+              <Route path='home' element={<Week4Home />}/>
+              <Route path='movie/:id' element={<MovieDisplay />}/>
             </Route>
             <Route path='week5' element={<Week5Main />} />
           </Route>

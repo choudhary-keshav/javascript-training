@@ -28,7 +28,7 @@ const Counter: React.FC = () => {
       <button className='counterButton' onClick={() => dispatch(increment())}>
         +
       </button>
-      <input className='incrementByValueInput' type='text' value={inputValue} onChange={handleInputChange}></input>
+      <input className='incrementByValueInput' type='text' value={inputValue} onChange={handleInputChange}/>
       <button className='incrementByValueButton' onClick={handleIncrement} disabled={!inputValue}>
         ADD
       </button>
