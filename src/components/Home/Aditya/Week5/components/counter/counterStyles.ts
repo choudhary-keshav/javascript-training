@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CounterWrapper = styled.div`
-  .App {
+  .app {
     text-align: center;
   }
   .heading {
@@ -25,7 +25,7 @@ export const CounterWrapper = styled.div`
       border: none;
     }
     #countValue {
-      background-color: #ffffff;
+      background-color: #fff;
       border-radius: 5px;
       width: 40%;
       font-size: 20px;

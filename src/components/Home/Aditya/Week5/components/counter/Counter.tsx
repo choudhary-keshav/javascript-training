@@ -2,21 +2,22 @@ import React from 'react';
 import { CounterWrapper } from './counterStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store';
-import { incrementCounter, decrementCounter } from '../../features/counterSlice';
+import { incrementCount, decrementCount } from '../../features/counterSlice';
 
 const Counter: React.FC = () => {
-  const MyState: number = useSelector((state: RootState) => state.counter);
+  const count: number = useSelector((count: RootState) => count);
   const dispatch = useDispatch();
+
   return (
     <CounterWrapper>
-      <div className='App'>
+      <div className='app'>
         <h1 className='heading'>Counter with Redux</h1>
         <div className='counter'>
-          <button id='decrement' onClick={() => dispatch(decrementCounter())}>
+          <button id='decrement' onClick={() => dispatch(decrementCount())}>
             -
           </button>
-          <span id='countValue'>{MyState}</span>
-          <button id='increment' onClick={() => dispatch(incrementCounter())}>
+          <span id='countValue'>{count}</span>
+          <button id='increment' onClick={() => dispatch(incrementCount())}>
             +
           </button>
         </div>
