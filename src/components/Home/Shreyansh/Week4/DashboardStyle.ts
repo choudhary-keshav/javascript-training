@@ -1,13 +1,11 @@
 import { styled } from 'styled-components';
 
 export const DashboardWrapper = styled.div`
-  .dashboard-container {
-    max-width: 800px;
-    margin: 30px auto 0;
-    padding: 20px;
-    background-color: #808080;
-    border-radius: 10px;
-  }
+  max-width: 800px;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: #808080;
+  border-radius: 10px;
   .navbar {
     background-color: #000080;
     padding: 10px;
@@ -29,10 +27,10 @@ export const DashboardWrapper = styled.div`
     text-decoration: none;
     font-weight: bold;
   }
-  .feature-container {
+  .featureContainer {
     margin-top: 20px;
   }
-  .feature-button button {
+  .featureButton button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #ffffff;
@@ -40,7 +38,7 @@ export const DashboardWrapper = styled.div`
     border-radius: 5px;
     cursor: pointer;
   }
-  .feature-button button:hover {
+  .featureButton button:hover {
     background-color: #0056b3;
   }
 `;
