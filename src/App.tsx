@@ -36,8 +36,8 @@ const App: React.FC = () => {
             <Route path='week5' element={<KeshavWeek5 />} />
           </Route>
           <Route path='shreyansh' element={<Shreyansh />}>
-            <Route path='week4/*' element={<ShreyanshWeek4 />}/>
-            <Route path='week5/*' element={<ShreyanshWeek5 />}/>
+            <Route path='week4/*' element={<ShreyanshWeek4 />} />
+            <Route path='week5/*' element={<ShreyanshWeek5 />} />
           </Route>
           <Route path='/aditya' element={<Aditya />}>
             <Route path='/aditya/week3' element={<AdityaWeek3 />}></Route>
