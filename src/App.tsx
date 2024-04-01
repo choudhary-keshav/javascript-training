@@ -18,7 +18,10 @@ import Week3Main from './components/Home/Ritika/Week3';
 import Week4Main from './components/Home/Ritika/Week4';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdityaWeek4Week1 from './components/Home/Aditya/Week4/pages/Week1';
+import AdityaWeek4Week3 from './components/Home/Aditya/Week4/pages/Week3';
 import AdityaWeek3 from './components/Home/Aditya/Week3';
+import AdityaWeek4 from './components/Home/Aditya/Week4';
 import Week4Home from './components/Home/Ritika/Week4/Movies/Home';
 import MovieDisplay from './components/Home/Ritika/Week4/Movies/SingleMovieDisplay/MovieDisplay';
 
@@ -40,7 +43,11 @@ const App: React.FC = () => {
             <Route path='week5/*' element={<ShreyanshWeek5 />} />
           </Route>
           <Route path='/aditya' element={<Aditya />}>
-            <Route path='/aditya/week3' element={<AdityaWeek3 />}></Route>
+            <Route path='/aditya/week3' element={<AdityaWeek3 />} />
+            <Route path='/aditya/week4/*' element={<AdityaWeek4 />}>
+              <Route path='week1&2' element={<AdityaWeek4Week1 />} />
+              <Route path='week3' element={<AdityaWeek4Week3 />} />
+            </Route>
           </Route>
           <Route path='ritika' element={<Ritika />}>
             <Route path='week2' element={<Week2 />}></Route>
