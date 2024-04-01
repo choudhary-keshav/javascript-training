@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { PopupCardWrapper } from './popupCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { getTodayDate, removeWhitespace } from '../../../../utils/functions';
 import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../../../utils/warning';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { setPopupTaskDate, setPopupTaskIsValidDate, setPopupTaskIsValidValue, setPopupTaskValue } from '../../features/popupCardSlice';
 
 interface Props {
   heading: string;
@@ -13,27 +16,32 @@ interface Props {
 }
 
 const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskObj, buttonValues }) => {
-  const [taskValue, setTaskValue] = useState<string>(taskObj?.value ?? '');
-  const [taskDate, setTaskDate] = useState<string>(taskObj?.date ?? '');
-  const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
-  const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
+  const popupTask = useSelector((state: RootState) => state.popupTask);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (taskObj) {
+      dispatch(setPopupTaskValue(taskObj.value));
+      dispatch(setPopupTaskDate(taskObj.date));
+    }
+  }, []);
 
   const isConfirm = submitAction && cancelAction && buttonValues;
 
   const handleTaskValueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const editValue = removeWhitespace(e.target.value);
-    setIsInvalidValue(!editValue);
-    setTaskValue(editValue);
+    dispatch(setPopupTaskIsValidValue(editValue));
+    dispatch(setPopupTaskValue(editValue));
   };
 
   const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setTaskDate(e.target.value);
     const currentDate = Date.parse(getTodayDate());
-    setIsInvalidDate(currentDate > Date.parse(e.target.value));
+    dispatch(setPopupTaskIsValidDate(currentDate <= Date.parse(e.target.value)));
+    dispatch(setPopupTaskDate(e.target.value));
   };
 
   const handleSubmit = (): void => {
-    submitAction?.(taskValue, taskDate);
+    submitAction?.(popupTask.value, popupTask.date);
   };
 
   const handleCancel = (): void => {
@@ -44,23 +52,30 @@ const PopupCard: React.FC<Props> = ({ heading, submitAction, cancelAction, taskO
     <PopupCardWrapper>
       <div id='mainDiv'>
         <h1 id='question'>{heading}</h1>
-        {!!taskObj && (
+        {taskObj && (
           <>
             <label className='taskDetails' htmlFor='task'>
               Task:
             </label>
-            <input className='taskDetails' type='text' name='task' value={taskValue} onChange={handleTaskValueChange} />
-            <span className='warning'>{isInvalidValue ? popupInvalidValueWarning : ' '}</span>
+            <input className='taskDetails' type='text' name='task' value={popupTask.value} onChange={handleTaskValueChange} />
+            <span className='warning'>{!popupTask.isValidValue ? popupInvalidValueWarning : ' '}</span>
             <label className='taskDetails' htmlFor='date'>
               Date:
             </label>
-            <input className='taskDetails' type='date' name='date' value={taskDate} min={getTodayDate()} onChange={handleTaskDateChange} />
-            <span className='warning'>{isInvalidDate ? popupInvalidDateWarning : ' '}</span>
+            <input
+              className='taskDetails'
+              type='date'
+              name='date'
+              value={popupTask.date}
+              min={getTodayDate()}
+              onChange={handleTaskDateChange}
+            />
+            <span className='warning'>{!popupTask.isValidDate ? popupInvalidDateWarning : ' '}</span>
           </>
         )}
         {isConfirm && (
           <div id='buttonDiv'>
-            <button onClick={handleSubmit} disabled={isInvalidValue || isInvalidDate}>
+            <button onClick={handleSubmit} disabled={!popupTask.isValidValue || !popupTask.isValidDate}>
               {buttonValues.submit}
             </button>
             <button onClick={handleCancel}>{buttonValues.cancel}</button>

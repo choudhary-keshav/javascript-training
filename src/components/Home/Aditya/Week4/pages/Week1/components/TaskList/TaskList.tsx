@@ -3,16 +3,16 @@ import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import Task from '../Task/Task';
 import { TaskListWrapper } from './taskListStyles';
 import Sun from '../../assets/icons/sun.svg';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
 
 interface Props {
   tasks: TaskDetails[];
-  showTasks: TaskDetails[];
   handleFilterChoice: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-  deleteTask: (taskId: string) => void;
-  updateTask: (updatedTask: TaskDetails) => void;
 }
 
-const TaskList: React.FC<Props> = ({ tasks, showTasks, handleFilterChoice, deleteTask, updateTask }) => {
+const TaskList: React.FC<Props> = ({ tasks, handleFilterChoice }) => {
+  const showTasks = useSelector((state: RootState) => state.todo.showTasks);
   const filterChoices: string[] = ['All Tasks', 'Not Completed', 'Completed', 'Due Closest', 'Due Farthest'];
 
   return (
@@ -33,7 +33,7 @@ const TaskList: React.FC<Props> = ({ tasks, showTasks, handleFilterChoice, delet
         {tasks.filter((task) => !task.isCompleted).length}
       </h4>
       {showTasks.map((object: TaskDetails) => (
-        <Task key={object.id} deleteTask={deleteTask} updateTask={updateTask} task={object} />
+        <Task key={object.id} task={object} />
       ))}
     </TaskListWrapper>
   );

@@ -5,7 +5,8 @@ import { RootState } from '../../store';
 import { incrementCount, decrementCount } from '../../features/counterSlice';
 
 const Counter: React.FC = () => {
-  const count: number = useSelector((count: RootState) => count);
+  // eslint-disable-next-line
+  const count = useSelector((state: RootState) => state.counter);
   const dispatch = useDispatch();
 
   return (

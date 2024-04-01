@@ -1,37 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CreateTaskCardWrapper } from './createTaskCardStyles';
 import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
 import { removeWhitespace, getTodayDate } from '../../../../utils/functions';
 import { createTaskInvalidWarning } from '../../../../utils/warning';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { setCreateTaskDate, setCreateTaskIsValidDate, setCreateTaskIsValidValue, setCreateTaskValue } from '../../features/createTaskSlice';
+import { addTodoTask } from '../../features/todoSlice';
 
-interface Props {
-  addTask: (newTask: TaskDetails) => void;
-}
-
-const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
+const CreateTaskCard: React.FC = () => {
   const today = getTodayDate();
-  const [date, setDate] = useState<string>(today);
-  const [task, setTask] = useState<string>('');
-  const [isInvalidValue, setIsInvalidValue] = useState<boolean>(false);
-  const [isInvalidDate, setIsInvalidDate] = useState<boolean>(false);
+  const createTask = useSelector((state: RootState) => state.createTask);
+  const dispatch = useDispatch();
 
   const handleSubmitTask = (): void => {
-    const currentTask = removeWhitespace(task);
-    const currentDate = Date.parse(getTodayDate());
-    if (currentDate > Date.parse(date)) {
-      setIsInvalidDate(true);
+    const currentTask = removeWhitespace(createTask.value);
+    const currentDate = Date.parse(today);
+    if (currentDate > Date.parse(createTask.date)) {
+      dispatch(setCreateTaskIsValidDate(false));
     }
-    if (!!currentTask && currentDate <= Date.parse(date)) {
-      setIsInvalidDate(false);
+    if (currentTask && currentDate <= Date.parse(createTask.date)) {
+      dispatch(setCreateTaskIsValidDate(true));
       const newTask: TaskDetails = {
         id: 'task #' + Date.now() + Math.random(),
         value: currentTask,
         isCompleted: false,
-        date: date
+        date: createTask.date
       };
-      addTask(newTask);
-      setTask('');
-      setDate(today);
+      dispatch(addTodoTask(newTask));
+      dispatch(setCreateTaskValue(''));
+      dispatch(setCreateTaskDate(today));
     }
   };
 
@@ -43,14 +41,14 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
 
   const handleTaskValueChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const editValue = removeWhitespace(e.target.value);
-    setIsInvalidValue(!editValue);
-    setTask(editValue);
+    dispatch(setCreateTaskIsValidValue(editValue));
+    dispatch(setCreateTaskValue(editValue));
   };
 
   const handleTaskDateChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    setDate(e.target.value);
-    const currentDate = Date.parse(getTodayDate());
-    setIsInvalidDate(currentDate > Date.parse(e.target.value));
+    const currentDate = Date.parse(today);
+    dispatch(setCreateTaskIsValidDate(currentDate <= Date.parse(e.target.value)));
+    dispatch(setCreateTaskDate(e.target.value));
   };
 
   return (
@@ -61,19 +59,19 @@ const CreateTaskCard: React.FC<Props> = ({ addTask }) => {
             id='newTaskInput'
             type='text'
             placeholder='+ Enter a task'
-            value={task}
+            value={createTask.value}
             onChange={handleTaskValueChange}
             onKeyDown={handleEnter}
           />
-          <input id='newTaskDate' type='date' min={today} value={date} onKeyDown={handleEnter} onChange={handleTaskDateChange} />
+          <input id='newTaskDate' type='date' min={today} value={createTask.date} onKeyDown={handleEnter} onChange={handleTaskDateChange} />
         </div>
-        <button onClick={handleSubmitTask} disabled={isInvalidValue || isInvalidDate}>
+        <button onClick={handleSubmitTask} disabled={!createTask.isValidValue || !createTask.isValidDate}>
           Add Task
         </button>
       </div>
-      {(isInvalidValue || isInvalidDate) && (
+      {(!createTask.isValidValue || !createTask.isValidDate) && (
         <div className='warning'>
-          <p>{createTaskInvalidWarning(isInvalidValue, isInvalidDate)}</p>
+          <p>{createTaskInvalidWarning(!createTask.isValidValue, !createTask.isValidDate)}</p>
         </div>
       )}
     </CreateTaskCardWrapper>

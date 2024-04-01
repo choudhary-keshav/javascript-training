@@ -4,3 +4,10 @@ export interface TaskDetails {
   isCompleted: boolean;
   date: string;
 }
+
+export interface newOrEditTaskState {
+  value: string;
+  date: string;
+  isValidValue: boolean;
+  isValidDate: boolean;
+}
