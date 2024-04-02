@@ -2,6 +2,7 @@
     "properInputWarning":"Please provide a valid name and select a status.",
     "autoFocusInputWarning":"Please provide both name and phone number.",
     "alreadyExistUser":"Employee with this name already exists!",
-    "successMessage":"Employee added successfully"
+    "successMessage":"Employee added successfully",
+    "requestMessage":"Please enter the details"
     
 }

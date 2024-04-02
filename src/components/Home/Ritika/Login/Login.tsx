@@ -18,7 +18,7 @@ const Login: React.FC = () => {
   };
 
   const handleSubmit = () => {
-    if (!validateUser(userName, userPassword)) return;
+    if (!validateUser(userPassword, userName)) return;
 
     if (!validatePassword(userPassword)) {
       toast.error(message.passwordRequirements);

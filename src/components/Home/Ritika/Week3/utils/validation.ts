@@ -23,9 +23,9 @@ export const validateAlreadyExistUser = (employees: Employee[], name: string) =>
   }
   return true;
 };
-export const validateUser = (userName: string, userPassword: string) => {
-  if (!userName.trim() || !userPassword.trim()) {
-    toast.error('Please enter the details');
+export const validateUser = (userPassword: string, userName: string) => {
+  if (!userPassword.trim() || !userName.trim()) {
+    toast.error(warnings.requestMessage);
     return false;
   }
   return true;
