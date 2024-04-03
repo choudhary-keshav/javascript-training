@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ShreyanshWrapper = styled.div`
+export const MainWrapper = styled.div`
   .weekButtonsContainer {
     display: flex;
     justify-content: space-around;
