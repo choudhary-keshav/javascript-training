@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getTodayDate } from '../../../utils/functions';
-import { newOrEditTaskState } from '../interfaces/TaskDetailsInterface';
+import { newOrEditTaskState } from '../interfaces/tasks';
 
 const initialState: newOrEditTaskState = {
   value: '',

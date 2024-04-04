@@ -1,5 +1,5 @@
 import { User } from '../../interfaces/interfaces';
-import { removeWhitespace } from '../../utils/functions';
+import { removeWhitespace } from '../../../../utils/functions';
 
 const searchLocalStorage = (search: string) => {
   const currentUsers: User[] = JSON.parse(localStorage.getItem('users') ?? '[]');

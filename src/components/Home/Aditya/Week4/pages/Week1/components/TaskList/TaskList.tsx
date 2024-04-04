@@ -1,5 +1,5 @@
 import React from 'react';
-import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../../interfaces/tasks';
 import Task from '../Task/Task';
 import { TaskListWrapper } from './taskListStyles';
 import Sun from '../../assets/icons/sun.svg';

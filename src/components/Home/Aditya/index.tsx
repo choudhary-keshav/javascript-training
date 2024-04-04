@@ -9,24 +9,24 @@ const Aditya: React.FC = () => {
     setSelectedWeek(e.currentTarget.value);
   };
 
+  const links = {
+    week3: 'Week-3',
+    week4: 'Week-4',
+    week5: 'Week-5'
+  };
+
   return (
     <MainWrapper>
       <div className='weekButtonsContainer'>
-        <Link to='week3'>
-          <button className={`weekButton ${selectedWeek === 'week3' ? 'active' : ''}`} value='week3' onClick={handleWeekClick}>
-            Week-3
-          </button>
-        </Link>
-        <Link to='week4'>
-          <button className={`weekButton ${selectedWeek === 'week4' ? 'active' : ''}`} value='week4' onClick={handleWeekClick}>
-            Week-4
-          </button>
-        </Link>
-        <Link to='week5'>
-          <button className={`weekButton ${selectedWeek === 'week5' ? 'active' : ''}`} value='week5' onClick={handleWeekClick}>
-            Week-5
-          </button>
-        </Link>
+        {Object.entries(links).map(([key, value]) => {
+          return (
+            <Link key={key} to={key}>
+              <button className={`weekButton ${selectedWeek === key ? 'active' : ''}`} value={key} onClick={handleWeekClick}>
+                {value}
+              </button>
+            </Link>
+          );
+        })}
       </div>
       <Outlet />
     </MainWrapper>

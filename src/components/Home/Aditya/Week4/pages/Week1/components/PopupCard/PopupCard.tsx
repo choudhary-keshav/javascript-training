@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { PopupCardWrapper } from './popupCardStyles';
-import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../../interfaces/tasks';
 import { getTodayDate, removeWhitespace } from '../../../../utils/functions';
 import { popupInvalidDateWarning, popupInvalidValueWarning } from '../../../../utils/warning';
 import { useDispatch, useSelector } from 'react-redux';

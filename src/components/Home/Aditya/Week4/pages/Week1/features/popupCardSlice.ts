@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { newOrEditTaskState } from '../interfaces/TaskDetailsInterface';
+import { newOrEditTaskState } from '../interfaces/tasks';
 
 const initialState: newOrEditTaskState = {
   value: '',

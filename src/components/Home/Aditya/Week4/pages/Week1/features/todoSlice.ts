@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TaskDetails } from '../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../interfaces/tasks';
 
 const getLocalTasks = (): TaskDetails[] => {
   return JSON.parse(localStorage.getItem('tasks') ?? '[]');

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../../interfaces/tasks';
 import { TaskWrapper } from './taskStyles';
 import TrashCan from '../../assets/icons/trash-1-open-svgrepo-com.svg';
 import Pencil from '../../assets/icons/pencil-edit-svgrepo-com.svg';
@@ -25,7 +25,7 @@ const Task: React.FC<Props> = ({ task }: Props) => {
   };
 
   const handleDelete = (): void => {
-    setIsDeleting(!isEditing);
+    setIsDeleting(!isDeleting);
     dispatch(deleteTodoTask(task.id));
   };
 

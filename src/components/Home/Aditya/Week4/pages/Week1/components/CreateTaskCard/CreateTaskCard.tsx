@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreateTaskCardWrapper } from './createTaskCardStyles';
-import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../../interfaces/tasks';
 import { removeWhitespace, getTodayDate } from '../../../../utils/functions';
 import { createTaskInvalidWarning } from '../../../../utils/warning';
 import { useDispatch, useSelector } from 'react-redux';
