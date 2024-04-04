@@ -9,3 +9,5 @@ export const createTaskInvalidWarning = (isInvalidValue: boolean, isInvalidDate:
     'Value'
   );
 };
+export const newUserInvalidUserWarning = 'Invalid Username';
+export const newUserInvalidStatusWarning = 'Invalid Status';

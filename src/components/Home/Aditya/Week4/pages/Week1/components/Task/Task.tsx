@@ -1,31 +1,32 @@
 import React, { useState } from 'react';
-import { TaskDetails } from '../../interfaces/TaskDetailsInterface';
+import { TaskDetails } from '../../interfaces/tasks';
 import { TaskWrapper } from './taskStyles';
 import TrashCan from '../../assets/icons/trash-1-open-svgrepo-com.svg';
 import Pencil from '../../assets/icons/pencil-edit-svgrepo-com.svg';
 import PopupCard from '../PopupCard/PopupCard';
+import { useDispatch } from 'react-redux';
+import { deleteTodoTask, updateTodoTask } from '../../features/todoSlice';
 
 interface Props {
   task: TaskDetails;
-  deleteTask: (taskId: string) => void;
-  updateTask: (updatedTask: TaskDetails) => void;
 }
 
-const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
+const Task: React.FC<Props> = ({ task }: Props) => {
   const [taskObj, setTaskObj] = useState<TaskDetails>(task);
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   const handleToggle = (): void => {
     const currentTask = { ...taskObj };
     currentTask.isCompleted = !taskObj.isCompleted;
     setTaskObj(currentTask);
-    updateTask(currentTask);
+    dispatch(updateTodoTask(currentTask));
   };
 
   const handleDelete = (): void => {
-    setIsDeleting(!isEditing);
-    deleteTask(task.id);
+    setIsDeleting(!isDeleting);
+    dispatch(deleteTodoTask(task.id));
   };
 
   const handleEdit = (newValue?: string, newDate?: string): void => {
@@ -34,7 +35,7 @@ const Task: React.FC<Props> = ({ task, deleteTask, updateTask }: Props) => {
       updatedTask.value = newValue;
       updatedTask.date = newDate;
       updatedTask.isCompleted = newValue === taskObj.value && taskObj.isCompleted;
-      updateTask(updatedTask);
+      dispatch(updateTodoTask(updatedTask));
       setIsEditing(!isEditing);
       setTaskObj(updatedTask);
     }
